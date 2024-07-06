@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function install_node(){
-    git clone https://github.com/allora-network/allora-chain.git
+    git clone https://github.com/LIONSHI01/allora-chain.git
+    git checkout lion
     cd allora-chain
     docker compose pull
     docker compose up -d
