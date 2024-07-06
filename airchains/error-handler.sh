@@ -11,7 +11,6 @@ function roll_back(){
 
 function restart(){
   sudo systemctl restart stationd
-  sudo journalctl -u stationd -f -o cat
 }
 
 function logs(){
