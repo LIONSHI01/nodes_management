@@ -28,8 +28,8 @@ function main_menu() {
 
       case $OPTION in
           1) roll_back ;;
-          2) logs ;;
-          3) restart ;;
+          2) restart ;;
+          3) logs ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."
