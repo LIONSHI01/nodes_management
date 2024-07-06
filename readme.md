@@ -6,4 +6,4 @@ wget -O allora_network.sh https://raw.githubusercontent.com/LIONSHI01/allora_net
 
 # Airchains
 
-wget -O airchains_error_handler.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/error-handler.sh && chmod +x airchains_error_handler.sh && ./airchains_error_handler.sh
+wget -O airchains_error_handler.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/allora/allora_install.sh && chmod +x airchains_error_handler.sh && ./airchains_error_handler.sh
