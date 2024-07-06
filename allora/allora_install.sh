@@ -16,17 +16,23 @@ function inspect_logs(){
     docker compose logs -f
 }
 
+function check_block_status(){
+    curl -s http://localhost:26657/status | jq .
+}
+
 function main_menu() {
   while true; do
       clear
       echo "Please choose the command to execute:"
       echo "1. Install Node"
       echo "2. View Logs"
-      read -p "Please input (1-2): " OPTION
+      echo "3. Block Sync Staus"
+      read -p "Please input (1-3): " OPTION
 
       case $OPTION in
           1) install_node ;;
           2) inspect_logs ;;
+          3) check_block_status ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."
