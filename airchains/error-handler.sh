@@ -9,13 +9,15 @@ function roll_back(){
   sudo systemctl restart stationd
 }
 
+function restart(){
+  sudo systemctl restart stationd
+  sudo journalctl -u stationd -f -o cat
+}
+
 function logs(){
   sudo journalctl -u stationd -f -o cat
 }
 
-function restart(){
-  sudo journalctl -u stationd -f -o cat
-}
 
 function main_menu() {
   while true; do
