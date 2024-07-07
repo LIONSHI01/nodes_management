@@ -25,6 +25,9 @@ function restart(){
 function logs(){
   sudo journalctl -u stationd -f -o cat
 }
+function update_command(){
+  wget -O airchains_error_handler.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/error-handler.sh && chmod +x airchains_error_handler.sh && ./airchains_error_handler.sh
+}
 
 
 function main_menu() {
@@ -44,6 +47,7 @@ function main_menu() {
           3) logs ;;
           4) change_rpc ;;
           5) stop_service ;;
+          0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."
