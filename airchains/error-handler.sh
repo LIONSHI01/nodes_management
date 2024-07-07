@@ -39,6 +39,7 @@ function main_menu() {
       echo "3. View Logs"
       echo "4. Change RPC"
       echo "5. Stop Service"
+      echo "0. Update Command"
       read -p "Please input (1-2): " OPTION
 
       case $OPTION in
