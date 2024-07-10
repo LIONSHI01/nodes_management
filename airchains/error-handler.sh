@@ -79,6 +79,7 @@ function main_menu() {
           3) logs ;;
           4) change_rpc ;;
           5) stop_service ;;
+          6) createEvmTxBot ;;
           7) txLogs ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
