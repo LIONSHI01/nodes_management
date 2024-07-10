@@ -38,11 +38,21 @@ function logs(){
   sudo journalctl -u stationd -f -o cat
 }
 
-function txLogs(){
+function tx_logs(){
   screen -r tx_airchains_bot
 }
 
-function createEvmTxBot(){
+function fix_insufficient_gas(){
+  sudo systemctl stop stationd
+
+  # Modify Gas
+  sed -i "s|gas := \".*\"|gas := utilis.GenerateRandomWithFavour(510, 1000, [2]int{520, 700}, 0.7)|" ~/tracks/junction/submitPod.go
+  cd $HOME/tracks
+  go mod tidy
+  sudo systemctl restart stationd && sudo journalctl -u stationd -f -o cat
+}
+
+function create_evm_tx_Bot(){
   cd $HOME/evm-station/ && /bin/bash ./scripts/local-keys.sh
   cat $HOME/.tracks/junction-accounts/keys/wallet.wallet.json
 
@@ -88,6 +98,7 @@ function main_menu() {
       echo "6. Stop Service"
       echo "7. Create EVM Tx Bot"
       echo "8. View EVM Tx Logs"
+      echo "9. Fix Insufficient Gas"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
@@ -98,8 +109,9 @@ function main_menu() {
           4) change_rpc ;;
           5) check_rpc ;;
           6) stop_service ;;
-          7) createEvmTxBot ;;
-          8) txLogs ;;
+          7) create_evm_tx_Bot ;;
+          8) tx_logs ;;
+          9) fix_insufficient_gas ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
