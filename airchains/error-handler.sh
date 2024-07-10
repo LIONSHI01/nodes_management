@@ -12,11 +12,11 @@ function roll_back(){
 function change_rpc(){
   read -p "Please input RPC: " NEW_RPC
   sed -i "s|JunctionRPC = \".*\"|JunctionRPC = \"$NEW_RPC\"|" ~/.tracks/config/sequencer.toml
-  echo Updated RPC
+  echo "Updated RPC"
   
-  echo Restarting Service
+  echo "Restarting Service"
   restart()
-  echo Restarted Successfully
+  echo "Restarted Successfully"
 
 }
 
