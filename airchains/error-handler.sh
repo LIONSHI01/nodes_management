@@ -25,6 +25,35 @@ function restart(){
 function logs(){
   sudo journalctl -u stationd -f -o cat
 }
+
+function txLogs(){
+  screen -r tx_airchains_bot
+}
+
+function createEvmTxBot(){
+  cd
+  mkdir airchain_evm_tx_bot
+  cd airchain_evm_tx_bot
+  git clone https://github.com/LIONSHI01/airchain-evm-tx-bot.git .
+  npm install
+  touch .env
+  
+  # Input Env Config
+  read -p "Please input VPS IP: " VPS_IP
+  read -p "Please input EVM Wallet Private Key: " PRIVATE_KEY
+  read -p "Please input EVM Address (From): " FROM_WALLET
+  read -p "Please input To Wallet Address (To): " TO_WALLET
+
+  sudo tee .env > /dev/null << EOF
+
+  VPS_IP=$VPS_IP
+  PRIVATE_KEY=$PRIVATE_KEY
+  FROM=$FROM_WALLET
+  TO=$TO_WALLET
+  
+EOF
+}
+
 function update_command(){
   wget -O airchains_error_handler.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/error-handler.sh && chmod +x airchains_error_handler.sh && ./airchains_error_handler.sh
 }
@@ -39,6 +68,8 @@ function main_menu() {
       echo "3. View Logs"
       echo "4. Change RPC"
       echo "5. Stop Service"
+      echo "6. Create EVM Tx Bot"
+      echo "7. View EVM Tx Logs"
       echo "0. Update Command"
       read -p "Please input (1-2): " OPTION
 
@@ -48,6 +79,7 @@ function main_menu() {
           3) logs ;;
           4) change_rpc ;;
           5) stop_service ;;
+          7) txLogs ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
