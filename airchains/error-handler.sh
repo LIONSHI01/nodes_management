@@ -10,8 +10,10 @@ function roll_back(){
 }
 
 function change_rpc(){
-  cd
-  vim /root/.tracks/config/sequencer.toml
+  # read -p "Please input RPC: " NEW_RPC
+  # sed -i 's|JunctionRPC = ".*"|JunctionRPC = "$NEW_RPC"|' ~/.tracks/config/sequencer.toml
+  read -p "Please input RPC: " NEW_RPC
+  sed -i "s|JunctionRPC = \".*\"|JunctionRPC = \"$NEW_RPC\"|" ~/.tracks/config/sequencer.toml
 }
 
 function stop_service(){
