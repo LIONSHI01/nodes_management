@@ -51,14 +51,14 @@ function createEvmTxBot(){
   touch .env
   
   # Input Env Config
-  read -p "Please input VPS IP: " VPS_IP
   read -p "Please input EVM Wallet Private Key: " PRIVATE_KEY
   read -p "Please input EVM Address (From): " FROM_WALLET
   read -p "Please input To Wallet Address (To): " TO_WALLET
+  LOCAL_IP=$(hostname -I | awk '{print $1}')
 
   sudo tee .env > /dev/null << EOF
 
-  VPS_IP=$VPS_IP
+  VPS_IP=$LOCAL_IP
   PRIVATE_KEY=$PRIVATE_KEY
   FROM=$FROM_WALLET
   TO=$TO_WALLET

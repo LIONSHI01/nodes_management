@@ -29,3 +29,4 @@ https://airchain-t-rpc.syanodes.my.id
 https://airchains-test-rpc.nodesteam.tech/
 https://junction-rpc.validatorvn.com/
 https://junction-testnet-rpc.synergynodes.com/
+**https://airchains-rpc.kubenode.xyz/
