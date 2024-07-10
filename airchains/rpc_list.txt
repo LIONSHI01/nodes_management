@@ -18,7 +18,7 @@ https://rpc.airchains.aknodes.net/
 https://airchains-rpc-testnet.zulnaaa.com/
 https://rpc-testnet-airchains.nodeist.net/
 https://airchains-testnet.rpc.stakevillage.net/
-https://airchains-rpc.sbgid.com/
+** https://airchains-rpc.sbgid.com/
 https://airchains-test.rpc.moonbridge.team/
 https://rpc-airchains-t.sychonix.com/
 https://airchains-rpc.anonid.top/

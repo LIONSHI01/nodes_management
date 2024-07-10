@@ -10,10 +10,14 @@ function roll_back(){
 }
 
 function change_rpc(){
-  # read -p "Please input RPC: " NEW_RPC
-  # sed -i 's|JunctionRPC = ".*"|JunctionRPC = "$NEW_RPC"|' ~/.tracks/config/sequencer.toml
   read -p "Please input RPC: " NEW_RPC
   sed -i "s|JunctionRPC = \".*\"|JunctionRPC = \"$NEW_RPC\"|" ~/.tracks/config/sequencer.toml
+  echo Updated RPC
+  
+  echo Restarting Service
+  restart()
+  echo Restarted Successfully
+
 }
 
 function stop_service(){
