@@ -15,7 +15,7 @@ function change_rpc(){
   echo "Updated RPC"
   
   echo "Restarting Service"
-  restart()
+  restart
   echo "Restarted Successfully"
 
 }
