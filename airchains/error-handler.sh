@@ -43,6 +43,9 @@ function txLogs(){
 }
 
 function createEvmTxBot(){
+  cd $HOME/evm-station/ && /bin/bash ./scripts/local-keys.sh
+  cat $HOME/.tracks/junction-accounts/keys/wallet.wallet.json
+
   cd
   mkdir airchain_evm_tx_bot
   cd airchain_evm_tx_bot
@@ -51,8 +54,6 @@ function createEvmTxBot(){
   touch .env
   
   # Input Env Config
-  cd $HOME/evm-station/ && /bin/bash ./scripts/local-keys.sh
-  cat $HOME/.tracks/junction-accounts/keys/wallet.wallet.json
   read -p "Please input EVM Wallet Private Key: " PRIVATE_KEY
   read -p "Please input EVM Address (From): " FROM_WALLET
   read -p "Please input To Wallet Address (To): " TO_WALLET
