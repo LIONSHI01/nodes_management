@@ -14,9 +14,7 @@ function change_rpc(){
   sed -i "s|JunctionRPC = \".*\"|JunctionRPC = \"$NEW_RPC\"|" ~/.tracks/config/sequencer.toml
   echo "Updated RPC"
   
-  echo "Restarting Service"
   restart
-  echo "Restarted Successfully"
 
 }
 
@@ -25,7 +23,11 @@ function stop_service(){
 }
 
 function restart(){
+  echo "Restarting Service"
+  
   sudo systemctl restart stationd
+
+  echo "Restarted Successfully"
 }
 
 function logs(){
