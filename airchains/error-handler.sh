@@ -69,7 +69,6 @@ function createEvmTxBot(){
 EOF
 
   screen -S tx_airchains_bot
-  npm start
 }
 
 function update_command(){
