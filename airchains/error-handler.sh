@@ -18,6 +18,10 @@ function change_rpc(){
 
 }
 
+function check_rpc(){
+  grep 'JunctionRPC = ' ~/.tracks/config/sequencer.toml
+}
+
 function stop_service(){
   sudo systemctl stop stationd
 }
@@ -78,20 +82,22 @@ function main_menu() {
       echo "2. Restart Service"
       echo "3. View Logs"
       echo "4. Change RPC"
-      echo "5. Stop Service"
-      echo "6. Create EVM Tx Bot"
-      echo "7. View EVM Tx Logs"
+      echo "5. Check RPC"
+      echo "6. Stop Service"
+      echo "7. Create EVM Tx Bot"
+      echo "8. View EVM Tx Logs"
       echo "0. Update Command"
-      read -p "Please input (0-7): " OPTION
+      read -p "Please input (0-8): " OPTION
 
       case $OPTION in
           1) roll_back ;;
           2) restart ;;
           3) logs ;;
           4) change_rpc ;;
-          5) stop_service ;;
-          6) createEvmTxBot ;;
-          7) txLogs ;;
+          5) check_rpc ;;
+          6) stop_service ;;
+          7) createEvmTxBot ;;
+          8) txLogs ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
