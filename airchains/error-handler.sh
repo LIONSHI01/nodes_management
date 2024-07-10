@@ -52,6 +52,9 @@ function createEvmTxBot(){
   TO=$TO_WALLET
   
 EOF
+
+  screen -S tx_airchains_bot
+  npm start
 }
 
 function update_command(){
@@ -71,7 +74,7 @@ function main_menu() {
       echo "6. Create EVM Tx Bot"
       echo "7. View EVM Tx Logs"
       echo "0. Update Command"
-      read -p "Please input (1-2): " OPTION
+      read -p "Please input (0-7): " OPTION
 
       case $OPTION in
           1) roll_back ;;
