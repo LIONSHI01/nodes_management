@@ -2,7 +2,7 @@
 
 service_name="stationd"
 error_strings=("Failed to get transaction by hash: not found" "Failed to Transact Verify pod" "Switchyard client connection error")
-restart_delay=180  # Restart delay in seconds (3 minutes)
+restart_delay=120  # Restart delay in seconds (3 minutes)
 
 echo "Script started and it will restart $service_name if needed..."
 
