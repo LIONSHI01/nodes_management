@@ -10,8 +10,6 @@ while true; do
     # Get the last 5 line of the service logs
     logs=$(journalctl -u "$service_name" --no-pager | tail -n 5)
 
-    echo $logs
-
     # Check for each error string in the logs
     for error_string in "${error_strings[@]}"; do
         if [[ "$logs" == *"$error_string"* ]]; then
