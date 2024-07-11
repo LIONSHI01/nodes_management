@@ -7,8 +7,8 @@ restart_delay=120  # Restart delay in seconds (3 minutes)
 echo "Script started and it will restart $service_name if needed..."
 
 while true; do
-    # Get the last line of the service logs
-    logs=$(journalctl -u "$service_name" -n 1 --no-pager | tail -n 1)
+    # Get the last 5 line of the service logs
+    logs=$(journalctl -u "$service_name" -n 1 --no-pager | tail -n 5)
 
     # Check for each error string in the logs
     for error_string in "${error_strings[@]}"; do
