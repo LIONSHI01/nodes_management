@@ -8,7 +8,7 @@ echo "Script started and it will restart $service_name if needed..."
 
 while true; do
     # Get the last 5 line of the service logs
-    logs=$(journalctl -u "$service_name" -n 1 --no-pager | tail -n 5)
+    logs=$(journalctl -u "$service_name" --no-pager | tail -n 5)
 
     echo $logs
 
