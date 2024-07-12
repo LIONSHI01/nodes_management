@@ -19,6 +19,7 @@ function vps_starter(){
   apt install screen
   apt install btop
   apt install ncdu
+  apt install vim
   install_docker
 }
 
