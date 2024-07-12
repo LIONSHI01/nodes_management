@@ -14,6 +14,14 @@ function install_docker(){
   fi
 }
 
+function vps_starter(){
+  apt-get update && apt-get upgrade
+  apt install screen
+  apt install btop
+  apt install ncdu
+  install_docker
+}
+
  
 
 
@@ -21,11 +29,11 @@ function main_menu() {
   while true; do
       clear
       echo "Please choose the command to execute:"
-      echo "1. Install Docker"
+      echo "1. Install Basic Dependencies"
       read -p "Please input (1-2): " OPTION
 
       case $OPTION in
-          1) install_docker ;;
+          1) vps_starter ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."
