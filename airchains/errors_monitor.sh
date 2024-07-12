@@ -6,7 +6,7 @@ service_name="stationd"
 function monitor_multi_string_errors() {
 echo "Script started and it will restart $service_name if needed..."
 # Restart the service if logs contains the following strings
-error_strings=("Failed to get transaction by hash: not found" "Failed to Transact Verify pod" "Switchyard client connection error" "VRF record is nil")
+error_strings=("Failed to get transaction by hash: not found" "Failed to Transact Verify pod" "Switchyard client connection error" "VRF record is nil" "Failed to Validate VRF")
 restart_delay=120  # Restart delay in seconds (2 minutes)
 
   while true; do
