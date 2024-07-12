@@ -46,9 +46,9 @@ function fix_insufficient_gas(){
   sudo systemctl stop stationd
 
   # Modify Gas
-  sed -i "s|gas := \".*\"|gas := utilis.GenerateRandomWithFavour(510, 1000, [2]int{520, 700}, 0.7)|" ~/tracks/junction/submitPod.go
-  cd $HOME/tracks
-  go mod tidy
+sed -i 's/gasFees := fmt.Sprintf("%damf", gas)/gasFees := fmt.Sprintf("%damf", 2*gas)/' "$HOME/tracks/junction/verifyPod.go"
+sed -i 's/gasFees := fmt.Sprintf("%damf", gas)/gasFees := fmt.Sprintf("%damf", 2*gas)/' "$HOME/tracks/junction/validateVRF.go"
+sed -i 's/gasFees := fmt.Sprintf("%damf", gas)/gasFees := fmt.Sprintf("%damf", 3*gas)/' "$HOME/tracks/junction/submitPod.go"
   sudo systemctl restart stationd && sudo journalctl -u stationd -f -o cat
 }
 
