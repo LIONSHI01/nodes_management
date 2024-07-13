@@ -81,6 +81,13 @@ EOF
   screen -S tx_airchains_bot
 }
 
+function set_up_error_monitor(){
+  git clone https://github.com/LIONSHI01/nodes_management.git
+  chmod +x ~/nodes_management/airchains/errors_monitor.sh
+  nohup bash ~/nodes_management/airchains/errors_monitor.sh &
+}
+
+
 function update_command(){
   wget -O airchains_error_handler.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/error-handler.sh && chmod +x airchains_error_handler.sh && ./airchains_error_handler.sh
 }
@@ -99,6 +106,7 @@ function main_menu() {
       echo "7. Create EVM Tx Bot"
       echo "8. View EVM Tx Logs"
       echo "9. Fix Insufficient Gas"
+      echo "10. Set up Error Monitor"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
@@ -112,6 +120,7 @@ function main_menu() {
           7) create_evm_tx_Bot ;;
           8) tx_logs ;;
           9) fix_insufficient_gas ;;
+          10) set_up_error_monitor ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
