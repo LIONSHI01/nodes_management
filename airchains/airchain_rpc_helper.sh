@@ -1,7 +1,15 @@
 #!/bin/bash
 
 function update_command(){
-  wget -O airchains_error_handler.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/error-handler.sh && chmod +x airchains_error_handler.sh && ./airchains_error_handler.sh
+  wget -O rpc_helper_airchain.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/airchain_rpc_helper.sh && chmod +x rpc_helper_airchain.sh && ./rpc_helper_airchain.sh
+}
+
+function view_block_sync(){
+  junctiond status --node http://152.53.64.82:26657 | jq .sync_info
+}
+
+function view_logs(){
+  sudo journalctl -u junctiond -f --no-hostname -o cat
 }
 
 
@@ -10,13 +18,13 @@ function main_menu() {
       clear
       echo "Please choose the command to execute:"
       echo "1. View Logs"
-      echo "2. View Block Height"
+      echo "2. View Block Sync Status"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
       case $OPTION in
           1) view_logs ;;
-          2) view_block_height ;;
+          2) view_block_sync ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
