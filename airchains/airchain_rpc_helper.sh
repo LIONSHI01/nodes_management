@@ -24,6 +24,7 @@ function main_menu() {
       echo "Please choose the command to execute:"
       echo "1. View Logs"
       echo "2. View Block Sync Status"
+      echo "3. Restart Service"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
