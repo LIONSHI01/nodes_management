@@ -23,3 +23,7 @@ wget -O evm_install.sh https://raw.githubusercontent.com/LIONSHI01/nodes_managem
 ### Failed to get transaction by hash: not found
 
 wget -O not_found_tx_monitor.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/not_found_tx_monitor.sh && chmod +x not_found_tx_monitor.sh && nohup bash not_found_tx_monitor.sh &
+
+### RPC Helper
+
+wget -O rpc_helper_airchain.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/airchain_rpc_helper.sh && chmod +x rpc_helper_airchain.sh && ./rpc_helper_airchain.sh

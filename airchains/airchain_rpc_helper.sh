@@ -14,6 +14,10 @@ function view_logs(){
 }
 
 
+function restart_service(){
+  sudo systemctl restart junctiond
+}
+
 function main_menu() {
   while true; do
       clear
@@ -26,6 +30,7 @@ function main_menu() {
       case $OPTION in
           1) view_logs ;;
           2) view_block_sync ;;
+          3) restart_service ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
