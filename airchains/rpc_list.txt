@@ -30,3 +30,4 @@ https://airchains-test-rpc.nodesteam.tech/
 https://junction-rpc.validatorvn.com/
 https://junction-testnet-rpc.synergynodes.com/
 **https://airchains-rpc.kubenode.xyz/
+**http://152.53.64.82:26650/
