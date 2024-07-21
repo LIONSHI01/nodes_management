@@ -95,14 +95,16 @@ function main_menu() {
       echo "Please choose the command to execute:"
       echo "1. Install"
       echo "2. View Logs"
-      echo "3. Restart Service"
+      echo "3. Restart Node"
+      echo "4. Delete Node"
       echo "0. Update Command"
-      read -p "Please input (0-3): " OPTION
+      read -p "Please input (0-4): " OPTION
 
       case $OPTION in
           1) install ;;
           2) view_logs ;;
           3) restart_service ;;
+          4) delete_service ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
