@@ -23,6 +23,7 @@ function install(){
 
 
   # Fill in Vars in .env
+  read -p "Input NODE_NAME : " NODE_NAME
   read -p "Input SCOUT_UID : " SCOUT_UID
   read -p "Input WEBHOOK_API_KEY : " WEBHOOK_API_KEY
   read -p "Input GROQ_API_KEY : " GROQ_API_KEY
@@ -39,7 +40,7 @@ function install(){
 
   # Chasm
   ORCHESTRATOR_URL=https://orchestrator.chasm.net
-  SCOUT_NAME=myscout
+  SCOUT_NAME=$NODE_NAME
   SCOUT_UID=$SCOUT_UID
   WEBHOOK_API_KEY=$WEBHOOK_API_KEY
   # Scout Webhook Url, update based on your server's IP and Port
