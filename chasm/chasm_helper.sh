@@ -77,6 +77,14 @@ function restart_service(){
   docker run -d --restart=always --env-file ./.env -p 3001:3001 --name scout johnsonchasm/chasm-scout
 }
 
+function delete_service(){
+  docker stop scout
+  docker rm scout
+  docker rmi johnsonchasm/chasm-scout
+  cd ~
+  rm -r ~/scout/
+}
+
 function update_script(){
   wget -O chasm_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/chasm/chasm_helper.sh && chmod +x chasm_helper.sh && ./chasm_helper.sh
 }
