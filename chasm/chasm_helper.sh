@@ -60,19 +60,22 @@ EOF
   docker pull johnsonchasm/chasm-scout
   docker run -d --restart=always --env-file ./.env -p 3001:3001 --name scout johnsonchasm/chasm-scout
 
+# sleep 5 seconds for docker run
+  sleep 5
+
 # Test Service
   curl localhost:3001
 
 # Test LLM
-cd ~/scout
-source ./.env
-curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer $WEBHOOK_API_KEY" \
-     -d '{"body":"{\"model\":\"gemma2-9b-it\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant.\"}]}"}' \
-     $WEBHOOK_URL
+  cd ~/scout
+  source ./.env
+  curl -X POST \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $WEBHOOK_API_KEY" \
+      -d '{"body":"{\"model\":\"gemma2-9b-it\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant.\"}]}"}' \
+      $WEBHOOK_URL
 
-}
+  }
 
 function view_logs(){
   docker logs scout -f --tail 100
