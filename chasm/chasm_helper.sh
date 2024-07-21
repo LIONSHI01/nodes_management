@@ -86,7 +86,7 @@ function main_menu() {
       clear
       echo "Please choose the command to execute:"
       echo "1. Install"
-      echo "2. View Block Sync Status"
+      echo "2. View Logs"
       echo "3. Restart Service"
       echo "0. Update Command"
       read -p "Please input (0-3): " OPTION
@@ -95,7 +95,7 @@ function main_menu() {
           1) install ;;
           2) view_logs ;;
           3) restart_service ;;
-          # 0) update_script ;;
+          0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."
