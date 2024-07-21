@@ -27,3 +27,7 @@ wget -O not_found_tx_monitor.sh https://raw.githubusercontent.com/LIONSHI01/node
 ### RPC Helper
 
 wget -O rpc_helper_airchain.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/airchains/airchain_rpc_helper.sh && chmod +x rpc_helper_airchain.sh && ./rpc_helper_airchain.sh
+
+# Chasm Node
+
+wget -O chasm_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/chasm/chasm_helper.sh && chmod +x chasm_helper.sh && ./chasm_helper.sh

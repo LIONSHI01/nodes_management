@@ -77,6 +77,10 @@ function restart_service(){
   docker run -d --restart=always --env-file ./.env -p 3001:3001 --name scout johnsonchasm/chasm-scout
 }
 
+function update_script(){
+  wget -O chasm_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/chasm/chasm_helper.sh && chmod +x chasm_helper.sh && ./chasm_helper.sh
+}
+
 function main_menu() {
   while true; do
       clear
@@ -91,7 +95,7 @@ function main_menu() {
           1) install ;;
           2) view_logs ;;
           3) restart_service ;;
-          # 0) update_command ;;
+          # 0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."
