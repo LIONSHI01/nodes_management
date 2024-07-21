@@ -2,8 +2,16 @@
 
 
 function install(){
-  curl -fsSL https://get.docker.com -o get-docker.sh
-  sudo sh get-docker.sh
+  if ! command -v docker &> /dev/null
+  then
+      echo "未检测到 Docker，正在安装..."
+      apt-get install ca-certificates curl gnupg lsb-release -y
+      
+      # 安装 Docker 最新版本
+      apt-get install docker.io -y
+  else
+      echo "Docker 已安装。"
+  fi
   
   # Open port
   sudo ufw allow 3001
@@ -56,7 +64,7 @@ EOF
   curl localhost:3001
 
 # Test LLM
-
+cd ~/scout
 source ./.env
 curl -X POST \
      -H "Content-Type: application/json" \
