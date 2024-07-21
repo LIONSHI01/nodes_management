@@ -15,10 +15,10 @@ function install(){
 
 
   # Fill in Vars in .env
-  read -p "Input SCOUT_UID" SCOUT_UID
-  read -p "Input WEBHOOK_API_KEY" WEBHOOK_API_KEY
-  read -p "Input GROQ_API_KEY" GROQ_API_KEY
-  read -p "Input OPENROUTER_API_KEY" OPENROUTER_API_KEY
+  read -p "Input SCOUT_UID : " SCOUT_UID
+  read -p "Input WEBHOOK_API_KEY : " WEBHOOK_API_KEY
+  read -p "Input GROQ_API_KEY : " GROQ_API_KEY
+  read -p "Input OPENROUTER_API_KEY : " OPENROUTER_API_KEY
 
 
   # Write .env
