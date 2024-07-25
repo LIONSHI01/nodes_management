@@ -18,6 +18,11 @@ function restart_service(){
   sudo systemctl restart junctiond
 }
 
+function remove_node(){
+  sudo systemctl stop junctiond
+  rm -r $HOME/.junction
+}
+
 function main_menu() {
   while true; do
       clear
@@ -25,6 +30,7 @@ function main_menu() {
       echo "1. View Logs"
       echo "2. View Block Sync Status"
       echo "3. Restart Service"
+      echo "4. Remove Service"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
@@ -32,6 +38,7 @@ function main_menu() {
           1) view_logs ;;
           2) view_block_sync ;;
           3) restart_service ;;
+          4) remove_node ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
