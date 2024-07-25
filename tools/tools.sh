@@ -14,6 +14,11 @@ function install_docker(){
   fi
 }
 
+function install_docker_compose(){
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+}
+
 function vps_starter(){
   apt-get update && apt-get upgrade
   apt install screen
@@ -21,6 +26,7 @@ function vps_starter(){
   apt install ncdu
   apt install vim
   install_docker
+  install_docker_compose
 }
 
  
