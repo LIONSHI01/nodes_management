@@ -59,11 +59,16 @@ EOF
 
   docker-compose up -d
 
+  view_connection_link()
+  
+  }
+
+function view_connection_link(){
   echo '====== Link to connect node: ======'
   connect_node_link
   echo '==================================='
 
-  }
+}
 
 function view_logs(){
   docker logs network3-01
