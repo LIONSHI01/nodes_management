@@ -4,8 +4,8 @@ function install_node(){
     git clone https://github.com/LIONSHI01/allora-chain.git
     cd allora-chain
     git checkout lion
-    docker compose pull
-    docker compose up -d
+    docker-compose pull
+    docker-compose up -d
     echo "=========================="
     echo "Node Installation complete"
     echo "=========================="
@@ -14,7 +14,7 @@ function install_node(){
 
 function inspect_logs(){
     cd allora-chain
-    docker compose logs -f
+    docker-compose logs -f
 }
 
 function check_block_status(){

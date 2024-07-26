@@ -76,6 +76,7 @@ function create_evm_tx_Bot(){
   PRIVATE_KEY=$PRIVATE_KEY
   FROM=$FROM_WALLET
   TO=$TO_WALLET
+  INTERVAL=6000
   
 EOF
 
