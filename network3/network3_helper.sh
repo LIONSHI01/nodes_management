@@ -82,6 +82,10 @@ function update_script(){
   wget -O network3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/network3_helper.sh && chmod +x network3_helper.sh && ./network3_helper.sh
 }
 
+function private_key(){
+  cat $HOME/network3/wireguard/utun.key
+}
+
 function install_docker_compose(){
   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
@@ -94,7 +98,8 @@ function main_menu() {
       echo "1. Install"
       echo "2. View Logs"
       echo "3. Restart Node"
-      echo "4. Delete Node"
+      echo "4. Node Privatekey"
+      echo "5. Delete Node"
       echo "0. Update Command"
       read -p "Please input (0-4): " OPTION
 
@@ -102,7 +107,8 @@ function main_menu() {
           1) install ;;
           2) view_logs ;;
           3) restart_service ;;
-          4) delete_service ;;
+          4) private_key ;;
+          5) delete_service ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
