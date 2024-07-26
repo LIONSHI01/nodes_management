@@ -13,7 +13,7 @@ function install(){
       echo "Docker 已安装。"
   fi
   
-
+  install_docker_compose
 
   mkdir network3
   cd network3
@@ -77,6 +77,11 @@ function delete_service(){
 
 function update_script(){
   wget -O networ3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/networ3_helper.sh && chmod +x networ3_helper.sh && ./networ3_helper.sh
+}
+
+function install_docker_compose(){
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
 }
 
 function main_menu() {
