@@ -59,9 +59,9 @@ EOF
 
   docker-compose up -d
 
-  view_connection_link()
+  view_connection_link
 
-  }
+}
 
 function view_connection_link(){
   echo '====== Link to connect node: ======'
