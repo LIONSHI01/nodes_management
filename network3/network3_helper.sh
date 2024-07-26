@@ -15,7 +15,10 @@ function install(){
   
   install_docker_compose
 
-  mkdir network3
+  if [ ! -d "network3" ]; then
+    mkdir network3
+  fi
+
   cd network3
 
 
