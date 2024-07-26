@@ -30,12 +30,12 @@ services:
     image: aron666/network3-ai    
     container_name: network3-01    
     ports:      
-      - 8080:8080/tcp    
+      - 7070:7070/tcp    
     volumes:
       # 請把 "/path/to" 改成你本機的路徑
       - /root/network3/wireguard:/usr/local/etc/wireguard    
     healthcheck:      
-      test: curl -fs http://localhost:8080/ || exit 1      
+      test: curl -fs http://localhost:7070/ || exit 1      
       interval: 30s      
       timeout: 5s      
       retries: 5      

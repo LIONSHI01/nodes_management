@@ -19,6 +19,22 @@ function install_docker_compose(){
   sudo chmod +x /usr/local/bin/docker-compose
 }
 
+function install_go(){
+  rm -rf $HOME/go
+sudo rm -rf /usr/local/go
+cd $HOME
+curl https://dl.google.com/go/go1.21.8.linux-amd64.tar.gz | sudo tar -C/usr/local -zxvf -
+cat <<'EOF' >>$HOME/.profile
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GO111MODULE=on
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+EOF
+source $HOME/.profile
+go version
+
+}
+
 function vps_starter(){
   apt-get update && apt-get upgrade
   apt install screen
@@ -27,6 +43,7 @@ function vps_starter(){
   apt install vim
   install_docker
   install_docker_compose
+  install_go
 }
 
  
