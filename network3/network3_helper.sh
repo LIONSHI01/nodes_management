@@ -23,7 +23,7 @@ function install(){
 
 
   # Write docker-compose.yml
-  tee .docker-compose.yml > /dev/null <<EOF
+  tee docker-compose.yml > /dev/null <<EOF
 version: '3.3'
 services:  
   network3-01:    
