@@ -31,3 +31,7 @@ wget -O rpc_helper_airchain.sh https://raw.githubusercontent.com/LIONSHI01/nodes
 # Chasm Node
 
 wget -O chasm_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/chasm/chasm_helper.sh && chmod +x chasm_helper.sh && ./chasm_helper.sh
+
+# Network3
+
+wget -O network3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/network3_helper.sh && chmod +x network3_helper.sh && ./network3_helper.sh

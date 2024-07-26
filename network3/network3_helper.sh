@@ -73,9 +73,9 @@ function delete_service(){
   rm -r ~/network3/
 }
 
-# function update_script(){
-#   wget -O chasm_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/chasm/chasm_helper.sh && chmod +x chasm_helper.sh && ./chasm_helper.sh
-# }
+function update_script(){
+  wget -O networ3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/networ3_helper.sh && chmod +x networ3_helper.sh && ./networ3_helper.sh
+}
 
 function main_menu() {
   while true; do
