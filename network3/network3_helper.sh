@@ -54,6 +54,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 EOF
 
+  docker-compose up -d
+
   }
 
 function view_logs(){
