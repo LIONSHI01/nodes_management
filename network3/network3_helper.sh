@@ -86,6 +86,11 @@ function private_key(){
   cat $HOME/network3/wireguard/utun.key
 }
 
+function connect_node_link(){
+  VPS_IP=$(hostname -I | awk '{print $1}')
+  echo http://account.network3.ai:8080/main?o=$VPS_IP:8080
+}
+
 function install_docker_compose(){
   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
