@@ -85,7 +85,7 @@ function delete_service(){
   docker rmi aron666/network3-ai
   cd ~
   rm -r ~/network3/
-}
+}  
 
 function update_script(){
   wget -O network3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/network3_helper.sh && chmod +x network3_helper.sh && ./network3_helper.sh
