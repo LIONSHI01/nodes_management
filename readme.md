@@ -35,3 +35,7 @@ wget -O chasm_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_manage
 # Network3
 
 wget -O network3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/network3_helper.sh && chmod +x network3_helper.sh && ./network3_helper.sh
+
+# Sonaric
+
+wget -O sonaric_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/sonaric/sonaric_helper.sh && chmod +x sonaric_helper.sh && ./sonaric_helper.sh

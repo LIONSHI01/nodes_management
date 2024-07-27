@@ -10,9 +10,10 @@ function update_script(){
 
 function backupKey(){
   VPS_IP=$(hostname -I | awk '{print $1}')
+  echo "http://$VPS_IP:9999"
+  
   python3 -m http.server 9999
   
-  echo "http://$VPS_IP:9999"
 }
 
 
