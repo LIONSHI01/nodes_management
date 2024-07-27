@@ -11,9 +11,14 @@ function update_script(){
 function backupKey(){
   VPS_IP=$(hostname -I | awk '{print $1}')
   echo "http://$VPS_IP:9999"
-  
+
   python3 -m http.server 9999
   
+}
+
+
+function prepareBackupKey(){
+  sonaric identity-export -o mysonaric.identity
 }
 
 
@@ -27,13 +32,15 @@ function main_menu() {
       clear
       echo "Please choose the command to execute:"
       echo "1. Info"
+      echo "3. Prepare Backup Key"
       echo "2. Backup key"
       echo "0. Update Command"
       read -p "Please input (0-4): " OPTION
 
       case $OPTION in
           1) node_info ;;
-          2) backupKey ;;
+          2) prepareBackupKey ;;
+          3) backupKey ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
