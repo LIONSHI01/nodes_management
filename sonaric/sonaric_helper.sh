@@ -2,17 +2,17 @@
 
  
 
-# function update_script(){
-#   wget -O network3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/network3_helper.sh && chmod +x network3_helper.sh && ./network3_helper.sh
-# }
-
-function private_key(){
-  cat $HOME/network3/wireguard/utun.key
+function update_script(){
+  wget -O sonaric_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/sonaric/sonaric_helper.sh && chmod +x sonaric_helper.sh && ./sonaric_helper.sh
 }
 
-function connect_node_link(){
+ 
+
+function backupKey(){
   VPS_IP=$(hostname -I | awk '{print $1}')
-  echo http://account.network3.ai:8080/main?o=$VPS_IP:8080
+  python3 -m http.server 9999
+  
+  echo "http://$VPS_IP:9999"
 }
 
 
@@ -25,12 +25,14 @@ function main_menu() {
   while true; do
       clear
       echo "Please choose the command to execute:"
-      echo "1. info"
+      echo "1. Info"
+      echo "2. Backup key"
       echo "0. Update Command"
       read -p "Please input (0-4): " OPTION
 
       case $OPTION in
           1) node_info ;;
+          2) backupKey ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
