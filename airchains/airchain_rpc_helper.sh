@@ -107,22 +107,24 @@ function main_menu() {
   while true; do
       clear
       echo "Please choose the command to execute:"
-      echo "1. View Logs"
-      echo "2. View Block Sync Status"
-      echo "3. Restart Service"
-      echo "4. Modify Port Number"
-      echo "5. Modify App Config"
-      echo "6. Remove Service"
+      echo "1. Install RPC"
+      echo "2. View Logs"
+      echo "3. View Block Sync Status"
+      echo "4. Restart Service"
+      echo "5. Modify Port Number"
+      echo "6. Modify App Config"
+      echo "7. Remove Service"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
       case $OPTION in
-          1) view_logs ;;
-          2) view_block_sync ;;
-          3) restart_service ;;
-          4) modify_port_number ;;
-          5) modify_app_config ;;
-          6) remove_node ;;
+          1) install_rpc ;;
+          2) view_logs ;;
+          3) view_block_sync ;;
+          4) restart_service ;;
+          5) modify_port_number ;;
+          6) modify_app_config ;;
+          7) remove_node ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
