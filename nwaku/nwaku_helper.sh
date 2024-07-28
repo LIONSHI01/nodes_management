@@ -56,13 +56,14 @@ EOF
 }
 
 function view_logs(){
+  cd ~/nwaku-compose/
   docker-compose logs -f nwaku
 }
 
 function download_key(){
   cd ~/nwaku-compose/keystore
   echo "http://$VPS_IP:9999"
-  
+
   python3 -m http.server 9999
 }
 
@@ -79,7 +80,6 @@ function delete_service(){
 }  
 
 function view_stats(){
-  
   echo "http://$VPS_IP:3000"
 }
 
