@@ -28,7 +28,7 @@ function node_info(){
 
 
 function install(){
-  wget https://raw.githubusercontent.com/muzammilvmx/Light-Nodes/main/SonaricNetwork/main.sh && chmod +x main.sh && ./main.sh
+  wget -O sonaric_install.sh https://raw.githubusercontent.com/muzammilvmx/Light-Nodes/main/SonaricNetwork/main.sh && chmod +x sonaric_install.sh && ./sonaric_install.sh
 }
 
 function main_menu() {
