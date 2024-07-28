@@ -36,8 +36,7 @@ STORAGE_SIZE=
 
 EOF
 
-    echo "確保錢包已有 Sepolia ETH"
-    read -r response
+    read -p "確保錢包已有 Sepolia ETH (y/n): " response
     response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
     if [[ "$response" == "Y" ]]; then
         echo "Register RLN"
@@ -58,6 +57,11 @@ function view_logs(){
   docker-compose logs -f nwaku
 }
 
+function download_key(){
+  cd ~/nwaku-compose/keystore
+  python3 -m http.server 9999
+}
+
 function restart_service(){
   cd ~/nwaku-compose
   docker-compose restart 
@@ -69,6 +73,11 @@ function delete_service(){
   cd ~
   rm -r ~/nwaku-compose
 }  
+
+function view_stats(){
+  VPS_IP=$(hostname -I | awk '{print $1}')
+  echo "http://$VPS_IP:3000"
+}
 
 function update_script(){
   wget -O nwaku_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/nwaku/nwaku_helper.sh && chmod +x nwaku_helper.sh && ./nwaku_helper.sh
@@ -83,7 +92,9 @@ function main_menu() {
       echo "1. Install"
       echo "2. View Logs"
       echo "3. Restart Node"
-      echo "4. Delete Node"
+      echo "4. View Stats"
+      echo "5. Download Key"
+      echo "6. Delete Node"
       echo "0. Update Command"
       read -p "Please input (0-4): " OPTION
 
@@ -91,7 +102,9 @@ function main_menu() {
           1) install ;;
           2) view_logs ;;
           3) restart_service ;;
-          4) delete_service ;;
+          4) view_stats ;;
+          5) download_key ;;
+          6) delete_service ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
