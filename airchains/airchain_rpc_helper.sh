@@ -95,8 +95,12 @@ sudo systemctl restart junctiond && sudo journalctl -u junctiond -f --no-hostnam
 }
 
 
-function modify_config(){
+function modify_port_number(){
  vim $HOME/.junction/config/config.toml
+}
+
+function modify_app_config(){
+ vim $HOME/.junction/config/app.toml
 }
 
 function main_menu() {
@@ -106,8 +110,9 @@ function main_menu() {
       echo "1. View Logs"
       echo "2. View Block Sync Status"
       echo "3. Restart Service"
-      echo "4. Modify Configs"
-      echo "5. Remove Service"
+      echo "4. Modify Port Number"
+      echo "5. Modify App Config"
+      echo "6. Remove Service"
       echo "0. Update Command"
       read -p "Please input (0-8): " OPTION
 
@@ -115,8 +120,9 @@ function main_menu() {
           1) view_logs ;;
           2) view_block_sync ;;
           3) restart_service ;;
-          4) modify_config ;;
-          5) remove_node ;;
+          4) modify_port_number ;;
+          5) modify_app_config ;;
+          6) remove_node ;;
           0) update_command ;;
           *) echo "Invalid Choice." ;;
       esac
