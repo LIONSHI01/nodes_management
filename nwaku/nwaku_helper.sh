@@ -67,7 +67,7 @@ function delete_service(){
 }  
 
 function update_script(){
-  wget -O network3_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/network3/network3_helper.sh && chmod +x network3_helper.sh && ./network3_helper.sh
+  wget -O nwaku_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/nwaku/nwaku_helper.sh && chmod +x nwaku_helper.sh && ./nwaku_helper.sh
 }
 
 
