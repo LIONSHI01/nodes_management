@@ -36,17 +36,21 @@ STORAGE_SIZE=
 
 EOF
 
-     echo "確保錢包已有Sepolia ETH"
-     read -r response
+    echo "確保錢包已有 Sepolia ETH"
+    read -r response
     response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
-        if [[ "$response" == "Y" ]]; then
+    if [[ "$response" == "Y" ]]; then
         echo "Register RLN"
       # Register 
-     ./register_rln.sh
+    bash ./register_rln.sh
+    else
+      echo "退出安裝"
+      exit 1
+    fi
 
 
-# Start Node
-docker-compose up -d
+    # Start Node
+    docker-compose up -d
 
 }
 
