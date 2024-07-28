@@ -6,7 +6,8 @@ function update_command(){
 
 function view_block_sync(){
   # Port changed from 26657 -> 26650 to avoid conflix with Rollup Port
-  junctiond status --node http://152.53.64.82:26650 | jq .sync_info
+  # junctiond status --node http://152.53.64.82:26650 | jq .sync_info
+  junctiond status 2>&1 | jq .sync_info
 }
 
 function view_logs(){
