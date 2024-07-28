@@ -27,20 +27,26 @@ function node_info(){
 }
 
 
+function install(){
+  wget https://raw.githubusercontent.com/muzammilvmx/Light-Nodes/main/SonaricNetwork/main.sh && chmod +x main.sh && ./main.sh
+}
+
 function main_menu() {
   while true; do
       clear
       echo "Please choose the command to execute:"
-      echo "1. Info"
-      echo "3. Prepare Backup Key"
-      echo "2. Backup key"
+      echo "1. Install"
+      echo "2. Info"
+      echo "3. Generate Key File"
+      echo "4. Backup key"
       echo "0. Update Command"
       read -p "Please input (0-4): " OPTION
 
       case $OPTION in
-          1) node_info ;;
-          2) prepareBackupKey ;;
-          3) backupKey ;;
+          1) install ;;
+          2) node_info ;;
+          3) prepareBackupKey ;;
+          4) backupKey ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
