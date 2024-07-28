@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+VPS_IP=$(hostname -I | awk '{print $1}')
+
 function install(){
   git clone https://github.com/waku-org/nwaku-compose
   cd nwaku-compose
@@ -59,6 +61,8 @@ function view_logs(){
 
 function download_key(){
   cd ~/nwaku-compose/keystore
+  echo "http://$VPS_IP:9999"
+  
   python3 -m http.server 9999
 }
 
@@ -75,7 +79,7 @@ function delete_service(){
 }  
 
 function view_stats(){
-  VPS_IP=$(hostname -I | awk '{print $1}')
+  
   echo "http://$VPS_IP:3000"
 }
 
