@@ -84,9 +84,15 @@ EOF
 }
 
 function set_up_error_monitor(){
-  git clone https://github.com/LIONSHI01/nodes_management.git
-  chmod +x ~/nodes_management/airchains/errors_monitor.sh
-  nohup bash ~/nodes_management/airchains/errors_monitor.sh &
+  cd ~
+  if [ -d "$HOME/nodes_management"]; then
+      cd $HOME/nodes_management
+  else
+    git clone https://github.com/LIONSHI01/nodes_management.git
+    chmod +x ~/nodes_management/airchains/errors_monitor.sh
+  fi
+  
+    nohup bash ~/nodes_management/airchains/errors_monitor.sh &
 }
 
 
