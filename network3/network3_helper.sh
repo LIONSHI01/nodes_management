@@ -30,12 +30,12 @@ services:
     image: aron666/network3-ai    
     container_name: network3-01    
     ports:      
-      - 9090:9090/tcp    
+      - 8989:8989/tcp    
     volumes:
       # 請把 "/path/to" 改成你本機的路徑
       - /root/network3/wireguard:/usr/local/etc/wireguard    
     healthcheck:      
-      test: curl -fs http://localhost:9090/ || exit 1      
+      test: curl -fs http://localhost:8989/ || exit 1      
       interval: 30s      
       timeout: 5s      
       retries: 5      
@@ -97,7 +97,7 @@ function private_key(){
 
 function connect_node_link(){
   VPS_IP=$(hostname -I | awk '{print $1}')
-  echo http://account.network3.ai:8080/main?o=$VPS_IP:9090
+  echo http://account.network3.ai:8080/main?o=$VPS_IP:8989
 }
 
 function install_docker_compose(){
