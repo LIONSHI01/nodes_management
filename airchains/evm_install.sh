@@ -16,6 +16,8 @@ function install_dependencies() {
 
 # 安装节点
 function install_node() {
+    read -p "Enter RPC : " RPC_TO_USE
+
     git clone https://github.com/airchains-network/evm-station.git
     git clone https://github.com/airchains-network/tracks.git
 
@@ -115,7 +117,7 @@ EOF
     NODE_ID=$(grep 'node_id =' $CONFIG_PATH | awk -F'"' '{print $2}')
     LOCAL_IP=$(hostname -I | awk '{print $1}')
 
-    create_station_cmd="go run cmd/main.go create-station --accountName wallet --accountPath $HOME/.tracks/junction-accounts/keys --jsonRPC \"http://149.102.129.146:26657/\" --info \"EVM Track\" --tracks \"$AIR_ADDRESS\" --bootstrapNode \"/ip4/$LOCAL_IP/tcp/2300/p2p/$NODE_ID\""
+    create_station_cmd="go run cmd/main.go create-station --accountName wallet --accountPath $HOME/.tracks/junction-accounts/keys --jsonRPC \"$RPC_TO_USE\" --info \"EVM Track\" --tracks \"$AIR_ADDRESS\" --bootstrapNode \"/ip4/$LOCAL_IP/tcp/2300/p2p/$NODE_ID\""
 
     echo "Running command:"
     echo "$create_station_cmd"
