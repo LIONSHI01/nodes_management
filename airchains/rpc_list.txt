@@ -7,7 +7,7 @@ https://airchains-rpc.elessarnodes.xyz/
 https://airchains-testnet-rpc.apollo-sync.com/
 https://rpc-airchain.danggia.xyz/
 https://airchains-rpc.stakeme.pro/
-https://airchains-testnet-rpc.crouton.digital/ 
+** https://airchains-testnet-rpc.crouton.digital/ 
 https://airchains-testnet-rpc.itrocket.net/
 https://rpc1.airchains.t.cosmostaking.com/
 https://rpc.airchain.yx.lu/
@@ -29,4 +29,4 @@ https://airchain-t-rpc.syanodes.my.id
 https://airchains-test-rpc.nodesteam.tech/
 https://junction-rpc.validatorvn.com/
 https://junction-testnet-rpc.synergynodes.com/
-**https://airchains-rpc.kubenode.xyz/
+** https://airchains-rpc.kubenode.xyz/

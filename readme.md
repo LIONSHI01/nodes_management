@@ -43,3 +43,7 @@ wget -O sonaric_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_mana
 # Nwaku network
 
 wget -O nwaku_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/nwaku/nwaku_helper.sh && chmod +x nwaku_helper.sh && ./nwaku_helper.sh
+
+# Nexus
+
+wget -O nexus.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/nexus/nexus.sh && chmod +x nexus.sh && ./nexus.sh
