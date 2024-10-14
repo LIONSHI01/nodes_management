@@ -26,6 +26,10 @@ function open_nexus_screen(){
   screen -r nexus
 }
 
+function update_script(){
+  wget -O nexus.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/nexus/nexus.sh && chmod +x nexus.sh && ./nexus.sh
+}
+
  
 
 function install_node(){
@@ -53,6 +57,7 @@ function main_menu() {
           1) install_node ;;
           2) check_prover_id ;;
           3) open_nexus_screen ;;
+          9) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
       echo "Press any key back to menu..."

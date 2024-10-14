@@ -46,4 +46,4 @@ wget -O nwaku_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_manage
 
 # Nexus
 
-wget -O nexus.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/nexus/nexus.sh && chmod +x nexus.sh && ./nexus.sh
+wget -O nexus.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/nexus/nexus.sh && chmod +x nexus.sh && ./nexus.sh
