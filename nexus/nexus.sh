@@ -18,8 +18,7 @@ function install_screen(){
 }
 
 function create_nexus_screen(){
-  screen -S nexus
-  curl https://cli.nexus.xyz/install.sh | sh
+  screen -S nexus -dm bash -c 'curl https://cli.nexus.xyz/install.sh | sh'
 }
 
 function open_nexus_screen(){
@@ -41,7 +40,7 @@ function install_node(){
 
 
 function check_prover_id(){
-  curl https://cli.nexus.xyz/install.sh | sh
+  cat ~/.nexus/prover-id
 }
 
 function main_menu() {
