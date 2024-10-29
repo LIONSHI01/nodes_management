@@ -38,9 +38,10 @@ go version
 function vps_starter(){
   apt-get update && apt-get upgrade
   apt install screen
-  apt install btop
   apt install ncdu
   apt install vim
+  apt install snap
+  snap install btop
   install_docker
   install_docker_compose
   install_go
