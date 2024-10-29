@@ -10,7 +10,7 @@ function install(){
 
 # Set Env
   # Fill in Vars in .env
-  read -p "Input Infura Key : " ALCHEMY_SEPOLIA_RPC
+  read -p "Input Alchemy Sepolia RPC : " ALCHEMY_SEPOLIA_RPC
   read -p "Input Wallet Private Key (no 0x) : " WALLET_PRIVATE_KEY
 
 
