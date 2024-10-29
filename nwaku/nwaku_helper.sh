@@ -10,7 +10,7 @@ function install(){
 
 # Set Env
   # Fill in Vars in .env
-  read -p "Input Infura Key : " INFURA_KEY
+  read -p "Input Infura Key : " ALCHEMY_SEPOLIA_RPC
   read -p "Input Wallet Private Key (no 0x) : " WALLET_PRIVATE_KEY
 
 
@@ -19,7 +19,7 @@ function install(){
 
   # RPC URL for accessing testnet via HTTP.
 # e.g. https://sepolia.infura.io/v3/123aa110320f4aec179150fba1e1b1b1
-RLN_RELAY_ETH_CLIENT_ADDRESS=https://sepolia.infura.io/v3/$INFURA_KEY
+RLN_RELAY_ETH_CLIENT_ADDRESS=$ALCHEMY_SEPOLIA_RPC
 
 # Private key of testnet where you have sepolia ETH that would be staked into RLN contract.
 # Note: make sure you don't use the '0x' prefix.
