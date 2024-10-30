@@ -47,3 +47,7 @@ wget -O nwaku_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_manage
 # Nexus
 
 wget -O nexus.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/nexus/nexus.sh && chmod +x nexus.sh && ./nexus.sh
+
+# Elixir
+
+wget -O elixir_v1.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/Elixir/elixir_v1.sh && chmod +x elixir_v1.sh && ./elixir_v1.sh
