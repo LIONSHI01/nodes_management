@@ -2,7 +2,7 @@
 
 
 function update_script(){
-  wget -O sonaric_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/main/sonaric/sonaric_helper.sh && chmod +x sonaric_helper.sh && ./sonaric_helper.sh
+  wget -O soneium.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/soneium/soneium.sh && chmod +x soneium.sh && ./soneium.sh
 }
 
 

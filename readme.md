@@ -51,3 +51,7 @@ wget -O nexus.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/re
 # Elixir
 
 wget -O elixir_v1.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/Elixir/elixir_v1.sh && chmod +x elixir_v1.sh && ./elixir_v1.sh
+
+# Soneium
+
+wget -O soneium.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/soneium/soneium.sh && chmod +x soneium.sh && ./soneium.sh
