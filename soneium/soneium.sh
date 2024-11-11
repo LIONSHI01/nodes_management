@@ -37,6 +37,9 @@ function install(){
   # Replace IP in docker-compose.yml
   sed -i "s|--nat=extip:<your_node_public_ip>|--nat=extip:$VPS_IP|" docker-compose.yml
 
+  # Start Node
+  docker-compose up -d
+
 }
 
 function view_logs(){
