@@ -2,7 +2,7 @@
 
 
 function update_script(){
-  wget -O soneium.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/soneium/soneium.sh && chmod +x soneium.sh && ./soneium.sh
+  wget -O unichain.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/unichain/unichain.sh && chmod +x unichain.sh && ./unichain.sh
 }
 
 
@@ -17,8 +17,6 @@ function install_dependencies(){
 
 function install(){
   install_dependencies
-
-  read -p "Enter Sepolia RPC : " SEPOLIA_RPC
 
   # Pull repo
   git clone https://github.com/Uniswap/unichain-node.git
