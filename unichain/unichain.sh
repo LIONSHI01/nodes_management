@@ -83,10 +83,10 @@ install_node() {
     if [ ! -d "$NODE_DIR" ]; then
         echo -e "${PACKAGE_ICON} 克隆 Unichain 仓库..."
         git clone https://github.com/LIONSHI01/unichain-node.git
-        git checkout lion
     else
         echo -e "${GREEN}${CHECK_MARK} Unichain 仓库已存在，更新中...${NC}"
         cd $NODE_DIR
+        git checkout lion
         git pull
         cd ..
     fi
@@ -99,6 +99,10 @@ install_node() {
     fi
 
     cd $NODE_DIR
+    
+    # check Lion modified version
+    git checkout lion
+
     echo -e "${WRENCH_ICON} 编辑 .env.sepolia 文件..."
     sed -i "s|OP_NODE_L1_ETH_RPC=.*|OP_NODE_L1_ETH_RPC=$ETH_RPC_URL|" .env.sepolia
     sed -i "s|OP_NODE_L1_BEACON=.*|OP_NODE_L1_BEACON=$BEACON_API_URL|" .env.sepolia
