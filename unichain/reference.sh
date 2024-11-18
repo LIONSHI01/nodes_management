@@ -22,6 +22,13 @@ NODE_DIR="unichain-node"
 NODEKEY_PATH="$NODE_DIR/geth-data/geth/nodekey"  # 设置私钥路径
 DOCKER_COMPOSE_FILE="$NODE_DIR/docker-compose.yml"
 
+# 显示菜单头部信息
+show_header() {
+    echo -e "${BLUE}================= Unichain 管理脚本 =================${NC}"
+    echo -e "作者: ${YELLOW}K2节点教程分享${NC}"
+    echo -e "推特: ${GREEN}https://x.com/BtcK241918${NC}"
+    echo -e "${BLUE}====================================================${NC}"
+}
 
 # 检查节点是否安装
 check_node_installed() {
@@ -81,8 +88,7 @@ install_node() {
 
     if [ ! -d "$NODE_DIR" ]; then
         echo -e "${PACKAGE_ICON} 克隆 Unichain 仓库..."
-        git clone https://github.com/LIONSHI01/unichain-node.git
-        git checkout lion
+        git clone https://github.com/Uniswap/unichain-node
     else
         echo -e "${GREEN}${CHECK_MARK} Unichain 仓库已存在，更新中...${NC}"
         cd $NODE_DIR
@@ -150,6 +156,7 @@ export_private_key() {
 
 # 主程序循环
 while true; do
+    show_header
     show_menu
     case $choice in
         1) install_node ;;
