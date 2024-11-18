@@ -40,9 +40,10 @@ show_menu() {
     echo -e "${WRENCH_ICON} 2. 查看节点日志"
     echo -e "${CROSS_MARK} 3. 卸载 Unichain 节点（保留依赖）"
     echo -e "${KEY_ICON} 4. 导出私钥"
+    echo -e "${KEY_ICON} 0. 更新Script"
     echo -e "🚪 5. 退出"
     echo -e "${BLUE}====================================================${NC}"
-    read -p "请选择一个选项 [1-5]: " choice
+    read -p "请选择一个选项 [0-5]: " choice
 }
 
 # 导入私钥
@@ -148,6 +149,10 @@ export_private_key() {
     fi
 }
 
+update_script(){
+ wget -O unichain.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/unichain/unichain.sh && chmod +x unichain.sh && ./unichain.sh
+}
+
 # 主程序循环
 while true; do
     show_menu
@@ -157,6 +162,7 @@ while true; do
         3) uninstall_node ;;
         4) export_private_key ;;
         5) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
+        0) update_script;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
     esac
 done
