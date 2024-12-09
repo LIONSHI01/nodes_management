@@ -36,8 +36,8 @@ show_menu() {
     echo -e "${BLUE}================= Ocean 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装 Ocean 节点"
     echo -e "${WRENCH_ICON} 2. 查看节点日志"
-    echo -e "${CROSS_MARK} 3. 卸载 Ocean 节点（保留依赖）"
-    echo -e "${KEY_ICON} 4. 导出私钥"
+    echo -e "${KEY_ICON} 3. 查看Dashboard"
+    echo -e "${CROSS_MARK} 4. 刪除節點"
     echo -e "${KEY_ICON} 0. 更新Script"
     echo -e "🚪 5. 退出"
     echo -e "${BLUE}====================================================${NC}"
@@ -126,16 +126,6 @@ uninstall_node() {
     fi
 }
 
-# 导出私钥
-export_private_key() {
-    if [ -f "$NODEKEY_PATH" ]; then
-        echo -e "${KEY_ICON} 导出私钥..."
-        cat "$NODEKEY_PATH"
-        echo -e "${YELLOW}请妥善保管此私钥（请勿泄露）！${NC}"
-    else
-        echo -e "${RED}${CROSS_MARK} 未找到私钥文件！${NC}"
-    fi
-}
 
 show_dashboard(){
     echo "http://${VPS_IP}:8083/dashboard/"
