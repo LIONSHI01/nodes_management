@@ -37,7 +37,8 @@ show_menu() {
     echo -e "${PACKAGE_ICON} 1. 安装 Ocean 节点"
     echo -e "${WRENCH_ICON} 2. 查看节点日志"
     echo -e "${KEY_ICON} 3. 查看Dashboard"
-    echo -e "${CROSS_MARK} 4. 刪除節點"
+    echo -e "${KEY_ICON} 4. 重啟節點"
+    echo -e "${CROSS_MARK} 5. 刪除節點"
     echo -e "${KEY_ICON} 0. 更新Script"
     echo -e "🚪 5. 退出"
     echo -e "${BLUE}====================================================${NC}"
@@ -148,7 +149,8 @@ while true; do
         1) install_node ;;
         2) view_logs ;;
         3) show_dashboard ;;
-        4) uninstall_node ;;
+        4) restart_node ;;
+        5) uninstall_node ;;
         5) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         0) update_script;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
