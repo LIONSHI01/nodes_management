@@ -135,6 +135,12 @@ update_script(){
  wget -O ocean_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/ocean/ocean_helper.sh && chmod +x ocean_helper.sh && ./ocean_helper.sh
 }
 
+
+restart_node(){
+    cd ocean/
+    docker-compose restart
+}
+
 # 主程序循环
 while true; do
     show_menu
