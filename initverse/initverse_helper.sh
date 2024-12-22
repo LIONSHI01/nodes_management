@@ -23,19 +23,20 @@ SCREEN_NAME="initverse"
 # 显示菜单
 show_menu() {
     echo -e "${BLUE}================= Initverse 管理菜单 =================${NC}"
-    echo -e "${PACKAGE_ICON} 1. 安装 Initverse 节点"
-    echo -e "${WRENCH_ICON} 2. 查看节点日志"
-    echo -e "${WRENCH_ICON} 3. 查看节点狀態"
-    echo -e "${WRENCH_ICON} 4. 刪除节点"
+    echo -e "${PACKAGE_ICON} 1. 安装 Initverse 節點"
+    echo -e "${WRENCH_ICON} 2. 查看節點日志"
+    echo -e "${WRENCH_ICON} 3. 查看節點狀態"
+    echo -e "${WRENCH_ICON} 3. 重啟節點"
+    echo -e "${WRENCH_ICON} 5. 刪除節點"
     echo -e "${KEY_ICON} 0. 更新Script"
-    echo -e "🚪 5. 退出"
+    echo -e "🚪 6. 退出"
     echo -e "${BLUE}====================================================${NC}"
     read -p "请选择一个选项 [0-5]: " choice
 }
 
 
 
-# 安装 Initverse 节点
+# 安装 Initverse 節點
 install_node() {
     # provide wallet address
     read -p "Please input EVM Wallet Address: " WALLET_ADDRESS
@@ -62,7 +63,7 @@ restart_node(){
 
 }
 
-# 查看节点日志
+# 查看節點日志
 view_logs() {
     screen -r $SCREEN_NAME
 }
@@ -77,7 +78,7 @@ check_node_status(){
 
 
 
-# 卸载节点
+# 卸载節點
 uninstall_node() {
     rm -r $NODE_DIR
 }
@@ -94,8 +95,9 @@ while true; do
         1) install_node ;;
         2) view_logs ;;
         3) check_node_status ;;
-        4) uninstall_node ;;
-        5) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
+        4) restart_node ;;
+        5) uninstall_node ;;
+        6) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         0) update_script;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
     esac
