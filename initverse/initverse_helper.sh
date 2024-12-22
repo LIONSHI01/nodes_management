@@ -49,7 +49,7 @@ install_node() {
     
     echo "$WALLET_ADDRESS" > "wallet.txt"
 
-    screen -S $SCREEN_NAME -dm bash -c './iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1'
+    screen -S $SCREEN_NAME -dm bash -c "./iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1"
 }
 
 restart_node(){
