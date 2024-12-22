@@ -16,7 +16,7 @@ KEY_ICON="🔑"
 
 # 变量定义
 NODE_DIR="initverse"
-WALLET_ADDRESS_PATH="~/$NODE_DIR/wallet.txt" 
+WALLET_ADDRESS_PATH="/root/$NODE_DIR/wallet.txt" 
 SCREEN_NAME="initverse"
  
  
@@ -54,10 +54,24 @@ install_node() {
 
 restart_node(){
     cd $NODE_DIR
+
+    # Check if the wallet address file exists
+    if ! check_wallet_address_file; then
+        return
+    fi
+
     WALLET_ADDRESS_RECORD=$(cat "$WALLET_ADDRESS_PATH")
 
     screen -S $SCREEN_NAME -dm bash -c "./iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS_RECORD.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1"
+}
 
+# Check if the wallet address file exists
+check_wallet_address_file() {
+    if [[ ! -f "$WALLET_ADDRESS_PATH" ]]; then
+        echo -e "${RED}Wallet address file not found. Please install the node first.${NC}"
+        return 1 # Return a non-zero status to indicate failure
+    fi
+    return 0 # Return zero to indicate success
 }
 
 # 查看節點日志
@@ -68,6 +82,12 @@ view_logs() {
 # Check Node Status
 check_node_status(){
     cd $NODE_DIR
+    
+    # Check if the wallet address file exists
+    if ! check_wallet_address_file; then
+        return
+    fi
+    
     WALLET_ADDRESS_RECORD=$(cat "$WALLET_ADDRESS_PATH")
 
     echo "https://genesis-testnet.yatespool.com/mining/$WALLET_ADDRESS_RECORD/data"
