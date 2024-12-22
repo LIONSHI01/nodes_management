@@ -15,7 +15,7 @@ WRENCH_ICON="🔧"
 KEY_ICON="🔑"
 
 # 变量定义
-NODE_DIR="initverse"
+NODE_DIR="/root/initverse"
 WALLET_ADDRESS_PATH="/root/$NODE_DIR/wallet.txt" 
 SCREEN_NAME="initverse"
  
@@ -26,7 +26,7 @@ show_menu() {
     echo -e "${PACKAGE_ICON} 1. 安装 Initverse 節點"
     echo -e "${WRENCH_ICON} 2. 查看節點日志"
     echo -e "${WRENCH_ICON} 3. 查看節點狀態"
-    echo -e "${WRENCH_ICON} 3. 重啟節點"
+    echo -e "${WRENCH_ICON} 4. 重啟節點"
     echo -e "${WRENCH_ICON} 5. 刪除節點"
     echo -e "${KEY_ICON} 0. 更新Script"
     echo -e "🚪 6. 退出"
@@ -87,7 +87,7 @@ check_node_status(){
     if ! check_wallet_address_file; then
         return
     fi
-    
+
     WALLET_ADDRESS_RECORD=$(cat "$WALLET_ADDRESS_PATH")
 
     echo "https://genesis-testnet.yatespool.com/mining/$WALLET_ADDRESS_RECORD/data"
