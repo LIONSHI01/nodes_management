@@ -42,6 +42,9 @@ install_node() {
     mkdir initverse
     cd $NODE_DIR
 
+    # Download official repo
+    wget https://github.com/Project-InitVerse/ini-miner/releases/download/v1.0.0/iniminer-linux-x64
+
     echo "$WALLET_ADDRESS" > "$WALLET_ADDRESS_PATH"
 
     screen -dmS $SCREEN_NAME
@@ -80,7 +83,7 @@ uninstall_node() {
  
 
 update_script(){
- wget -O initverse.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/initverse/initverse.sh && chmod +x initverse.sh && ./initverse.sh
+ wget -O initverse_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/initverse/initverse_helper.sh && chmod +x initverse_helper.sh && ./initverse_helper.sh
 }
 
 # 主程序循环
