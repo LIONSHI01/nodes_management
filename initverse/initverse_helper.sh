@@ -16,7 +16,7 @@ KEY_ICON="🔑"
 
 # 变量定义
 NODE_DIR="/root/initverse"
-WALLET_ADDRESS_PATH="/root/$NODE_DIR/wallet.txt" 
+WALLET_ADDRESS_PATH="/root/initverse/wallet.txt" 
 SCREEN_NAME="initverse"
  
  
