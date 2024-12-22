@@ -46,8 +46,8 @@ install_node() {
     # Download official repo
     wget https://github.com/Project-InitVerse/ini-miner/releases/download/v1.0.0/iniminer-linux-x64
     chmod +x iniminer-linux-x64
-
-    echo "$WALLET_ADDRESS" > "$WALLET_ADDRESS_PATH"
+    
+    echo "$WALLET_ADDRESS" > "wallet.txt"
 
     screen -dmS $SCREEN_NAME
     ./iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1
