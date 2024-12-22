@@ -44,6 +44,7 @@ install_node() {
 
     # Download official repo
     wget https://github.com/Project-InitVerse/ini-miner/releases/download/v1.0.0/iniminer-linux-x64
+    chmod +x iniminer-linux-x64
 
     echo "$WALLET_ADDRESS" > "$WALLET_ADDRESS_PATH"
 
