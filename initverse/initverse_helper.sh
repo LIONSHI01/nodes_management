@@ -60,9 +60,7 @@ restart_node(){
         return
     fi
 
-    WALLET_ADDRESS_RECORD=$(cat "$WALLET_ADDRESS_PATH")
-
-    screen -S $SCREEN_NAME -dm bash -c "./iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS_RECORD.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1"
+    bash "./miner.sh"
 }
 
 # Check if the wallet address file exists
