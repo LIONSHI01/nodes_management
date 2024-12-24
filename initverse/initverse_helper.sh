@@ -49,7 +49,7 @@ install_node() {
     
     echo "$WALLET_ADDRESS" > "wallet.txt"
 
-    screen -S $SCREEN_NAME -dm bash -c "./iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1"
+    screen -S $SCREEN_NAME -dm bash -c "wget -O miner.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/initverse/miner.sh && chmod +x miner.sh && ./miner.sh"
 }
 
 restart_node(){
@@ -103,6 +103,11 @@ uninstall_node() {
 
 update_script(){
  wget -O initverse_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/initverse/initverse_helper.sh && chmod +x initverse_helper.sh && ./initverse_helper.sh
+}
+
+
+download_miner_script(){
+     wget -O miner.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/initverse/miner.sh && chmod +x miner.sh && ./miner.sh
 }
 
 # 主程序循环
