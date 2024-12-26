@@ -110,19 +110,21 @@ function main_menu() {
       clear
       echo "Please choose the command to execute:"
       echo "1. Install"
-      echo "2. View Logs"
-      echo "3. Restart Node"
-      echo "4. Node Privatekey"
-      echo "5. Delete Node"
+      echo "2. View Status"
+      echo "3. View Logs"
+      echo "4. Restart Node"
+      echo "5. Node Privatekey"
+      echo "6. Delete Node"
       echo "0. Update Command"
       read -p "Please input (0-4): " OPTION
 
       case $OPTION in
           1) install ;;
-          2) view_logs ;;
-          3) restart_service ;;
-          4) private_key ;;
-          5) delete_service ;;
+          2) connect_node_link ;;
+          3) view_logs ;;
+          4) restart_service ;;
+          5) private_key ;;
+          6) delete_service ;;
           0) update_script ;;
           *) echo "Invalid Choice." ;;
       esac
