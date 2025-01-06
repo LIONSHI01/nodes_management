@@ -72,7 +72,7 @@ view_logs(){
 }
 
 update_script(){
- wget -O glacier_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/glacier/glacier_helper.sh && chmod +x glacier_helper.sh && ./glacier_helper.sh
+ wget -O glacier_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/plaza/plaza_helper.sh && chmod +x plaza_helper.sh && ./plaza_helper.sh
 }
 
 
