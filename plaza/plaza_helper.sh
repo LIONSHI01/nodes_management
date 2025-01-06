@@ -39,6 +39,7 @@ start_node(){
     mkdir plaza_bot
     cd plaza_bot
     git clone https://github.com/LIONSHI01/plaza.git .
+    git checkout lion
     
 
     read -p "请输入你的錢包地址：" ADDRESS
