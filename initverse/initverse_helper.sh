@@ -27,7 +27,8 @@ show_menu() {
     echo -e "${WRENCH_ICON} 2. 查看節點日志"
     echo -e "${WRENCH_ICON} 3. 查看節點狀態"
     echo -e "${WRENCH_ICON} 4. 重啟節點"
-    echo -e "${WRENCH_ICON} 5. 刪除節點"
+    echo -e "${WRENCH_ICON} 5. 重啟矿池節點"
+    echo -e "${WRENCH_ICON} 6. 刪除節點"
     echo -e "${KEY_ICON} 0. 更新Script"
     echo -e "🚪 6. 退出"
     echo -e "${BLUE}====================================================${NC}"
@@ -92,6 +93,20 @@ check_node_status(){
 }
 
 
+restart_as_pool_worker(){
+    cd $NODE_DIR
+    
+    # Check if the wallet address file exists
+    if ! check_wallet_address_file; then
+        return
+    fi
+
+    WALLET_ADDRESS_RECORD=$(cat "$WALLET_ADDRESS_PATH")
+
+    screen -S $SCREEN_NAME -dm bash -c "./iniminer-linux-x64 --pool stratum+tcp://$WALLET_ADDRESS_RECORD.Worker001@pool-core-testnet.inichain.com:32672 stratum+tcp://$WALLET_ADDRESS_RECORD.Worker001@pool-core-testnet.inichain.com:32672 --cpu-device 1"
+    
+}
+
 
 # 卸载節點
 uninstall_node() {
@@ -116,8 +131,9 @@ while true; do
         2) view_logs ;;
         3) check_node_status ;;
         4) restart_node ;;
-        5) uninstall_node ;;
-        6) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
+        5) restart_as_pool_worker ;;
+        6) uninstall_node ;;
+        7) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         0) update_script;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
     esac
