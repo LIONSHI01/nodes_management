@@ -41,8 +41,8 @@ install_node() {
     # provide wallet address
     read -p "Please input EVM Wallet Address: " WALLET_ADDRESS
     git clone $REPO_ADDRESS
-    git checkout lion
     cd $NODE_DIR
+    git checkout lion
     
     echo "$WALLET_ADDRESS" > "account.txt"
 
@@ -58,7 +58,7 @@ restart_node(){
 # 查看節點日志
 view_logs() {
     cd $NODE_DIR
-    docker-compose logs
+    docker-compose logs -f
 }
  
 
