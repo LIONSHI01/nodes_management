@@ -19,6 +19,33 @@ function install_docker_compose(){
   sudo chmod +x /usr/local/bin/docker-compose
 }
 
+function install_nodejs_and_npm() {
+    if command -v node > /dev/null 2>&1; then
+        echo "Node.js 已安装"
+    else
+        echo "Node.js 未安装，正在安装..."
+        curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+    fi
+
+    if command -v npm > /dev/null 2>&1; then
+        echo "npm 已安装"
+    else
+        echo "npm 未安装，正在安装..."
+        sudo apt-get install -y npm
+    fi
+}
+
+# 检查并安装 PM2
+function install_pm2() {
+    if command -v pm2 > /dev/null 2>&1; then
+        echo "PM2 已安装"
+    else
+        echo "PM2 未安装，正在安装..."
+        npm install pm2@latest -g
+    fi
+}
+
 function install_go(){
   rm -rf $HOME/go
 sudo rm -rf /usr/local/go
@@ -45,6 +72,8 @@ function vps_starter(){
   install_docker
   install_docker_compose
   install_go
+  install_nodejs_and_npm
+  install_pm2
 }
 
  
