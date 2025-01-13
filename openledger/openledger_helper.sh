@@ -16,7 +16,6 @@ KEY_ICON="🔑"
 
 # 变量定义
 NODE_DIR="/root/openledger-bot"
-WALLET_ADDRESS_PATH="/root/initverse/wallet.txt" 
 REPO_ADDRESS="https://github.com/LIONSHI01/openledger-bot.git"
 CONTAINER_NAME="openledger-bot"
  
