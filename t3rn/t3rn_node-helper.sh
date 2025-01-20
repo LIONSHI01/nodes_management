@@ -71,8 +71,8 @@ function execute_script() {
     fi
 
     # 下载文件
-    echo "正在下载 executor-linux-v0.40.0.tar.gz..."
-    wget https://github.com/t3rn/executor-release/releases/download/v0.40.0/executor-linux-v0.40.0.tar.gz
+    echo "正在下载 executor-linux-v0.41.0.tar.gz..."
+    wget https://github.com/t3rn/executor-release/releases/download/v0.41.0/executor-linux-v0.41.0.tar.gz
 
     # 检查下载是否成功
     if [ $? -eq 0 ]; then
@@ -84,7 +84,7 @@ function execute_script() {
 
     # 解压文件到当前目录
     echo "正在解压文件..."
-    tar -xvzf executor-linux-v0.40.0.tar.gz
+    tar -xvzf executor-linux-v0.41.0.tar.gz
 
     # 检查解压是否成功
     if [ $? -eq 0 ]; then
@@ -104,8 +104,8 @@ function execute_script() {
     fi
 
     # 提示用户输入环境变量的值，给 EXECUTOR_MAX_L3_GAS_PRICE 设置默认值为 100
-    read -p "请输入 EXECUTOR_MAX_L3_GAS_PRICE 的值 [默认 100]: " EXECUTOR_MAX_L3_GAS_PRICE
-    EXECUTOR_MAX_L3_GAS_PRICE="${EXECUTOR_MAX_L3_GAS_PRICE:-100}"
+    read -p "请输入 EXECUTOR_MAX_L3_GAS_PRICE 的值 [默认 1000]: " EXECUTOR_MAX_L3_GAS_PRICE
+    EXECUTOR_MAX_L3_GAS_PRICE="${EXECUTOR_MAX_L3_GAS_PRICE:-1000}"
 
     # 提示用户输入 RPC_ENDPOINTS_OPSP，如果没有输入则使用默认值
     read -p "请输入 RPC_ENDPOINTS_OPSP 的值 [默认 https://sepolia.optimism.io]: " RPC_ENDPOINTS_OPSP
@@ -120,7 +120,7 @@ function execute_script() {
     RPC_ENDPOINTS_BLSS="${RPC_ENDPOINTS_BLSS:-https://blessnet-sepolia-testnet.rpc.caldera.xyz/http}"
 
     # 提示用户输入 RPC_ENDPOINTS_ARBT，如果没有输入则使用默认值
-    read -p "请输入 RPC_ENDPOINTS_ARBT 的值 [默认 https://endpoints.omniatech.io/v1/arbitrum/sepolia/public]: " RPC_ENDPOINTS_ARBT
+    read -p "请输入 RPC_ENDPOINTS_ARBT 的值 [默认 https://arbitrum-sepolia-rpc.publicnode.com]: " RPC_ENDPOINTS_ARBT
     RPC_ENDPOINTS_ARBT="${RPC_ENDPOINTS_ARBT:-https://arbitrum-sepolia-rpc.publicnode.com}"
     
 
@@ -150,7 +150,7 @@ function execute_script() {
 
     # 删除压缩文件
     echo "删除压缩包..."
-    rm executor-linux-v0.40.0.tar.gz
+    rm executor-linux-v0.41.0.tar.gz
 
     # 切换目录到 executor/bin
     echo "切换目录并准备使用 pm2 启动 executor..."
