@@ -24,6 +24,7 @@ function main_menu() {
         echo "1) 执行脚本"
         echo "2) 查看日志"
         echo "3) 删除节点"
+        echo "0) 更新腳本"
         echo "5) 退出"
         
         read -p "请输入你的选择 [1-3]: " choice
@@ -37,6 +38,9 @@ function main_menu() {
                 ;;
             3)
                 delete_node
+                ;;
+            0)
+                update_script
                 ;;
             5)
                 echo "退出脚本。"
@@ -67,7 +71,7 @@ function execute_script() {
     fi
 
     # 下载文件
-    echo "正在下载 executor-linux-v0.32.0.tar.gz..."
+    echo "正在下载 executor-linux-v0.40.0.tar.gz..."
     wget https://github.com/t3rn/executor-release/releases/download/v0.40.0/executor-linux-v0.40.0.tar.gz
 
     # 检查下载是否成功
@@ -125,7 +129,8 @@ function execute_script() {
     export NODE_ENV=testnet
     export LOG_LEVEL=debug
     export LOG_PRETTY=false
-    export ENABLED_NETWORKS='arbitrum-sepolia,base-sepolia,blast-sepolia,optimism-sepolia,l1rn'
+    export ENABLED_NETWORKS='base-sepolia,optimism-sepolia,l1rn'
+    # export ENABLED_NETWORKS='arbitrum-sepolia,base-sepolia,blast-sepolia,optimism-sepolia,l1rn'
     export EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
     export EXECUTOR_MAX_L3_GAS_PRICE="$EXECUTOR_MAX_L3_GAS_PRICE"
 
@@ -174,6 +179,10 @@ function view_logs() {
     else
         echo "日志文件不存在。"
     fi
+}
+
+function update_script(){
+    wget -O t3rn_node_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/t3rn/t3rn_node-helper.sh && chmod +x t3rn_node_helper.sh && ./t3rn_node_helper.sh
 }
 
 # 删除节点函数
