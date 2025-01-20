@@ -121,8 +121,7 @@ function execute_script() {
 
     # 提示用户输入 RPC_ENDPOINTS_ARBT，如果没有输入则使用默认值
     read -p "请输入 RPC_ENDPOINTS_ARBT 的值 [默认 https://endpoints.omniatech.io/v1/arbitrum/sepolia/public]: " RPC_ENDPOINTS_ARBT
-    RPC_ENDPOINTS_ARBT="${RPC_ENDPOINTS_ARBT:-https://endpoints.omniatech.io/v1/arbitrum/sepolia/public}"
-
+    RPC_ENDPOINTS_ARBT="${RPC_ENDPOINTS_ARBT:-https://arbitrum-sepolia-rpc.publicnode.com}"
     
 
     # 设置环境变量
