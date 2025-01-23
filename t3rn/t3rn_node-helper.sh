@@ -71,8 +71,8 @@ function execute_script() {
     fi
 
     # 下载文件
-    echo "正在下载 executor-linux-v0.46.0.tar.gz..."
-    wget https://github.com/t3rn/executor-release/releases/download/v0.46.0/executor-linux-v0.46.0.tar.gz
+    echo "正在下载 executor-linux-v0.45.0.tar.gz..."
+    wget https://github.com/t3rn/executor-release/releases/download/v0.45.0/executor-linux-v0.45.0.tar.gz
 
     # 检查下载是否成功
     if [ $? -eq 0 ]; then
@@ -84,7 +84,7 @@ function execute_script() {
 
     # 解压文件到当前目录
     echo "正在解压文件..."
-    tar -xvzf executor-linux-v0.46.0.tar.gz
+    tar -xvzf executor-linux-v0.45.0.tar.gz
 
     # 检查解压是否成功
     if [ $? -eq 0 ]; then
@@ -150,7 +150,7 @@ function execute_script() {
 
     # 删除压缩文件
     echo "删除压缩包..."
-    rm executor-linux-v0.46.0.tar.gz
+    rm executor-linux-v0.45.0.tar.gz
 
     # 切换目录到 executor/bin
     echo "切换目录并准备使用 pm2 启动 executor..."
