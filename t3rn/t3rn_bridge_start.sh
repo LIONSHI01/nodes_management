@@ -21,6 +21,7 @@ START_BOT_COMMAND="python3 -m venv venv \
                     source venv/bin/activate \
                     pip install -r requirements.txt \
                     python bot.py"
+NODE_BINARY="start.sh"
 
 # 显示菜单
 show_menu() {
@@ -90,9 +91,9 @@ start_node(){
 EOF
 
 
-    chmod +x start.sh
+    chmod +x $NODE_BINARY
     
-    screen -dmS "$SCREEN_SESSION_NAME"
+    screen -dmS "$SCREEN_SESSION_NAME" bash -c "./$NODE_BINARY"
 }
 
  
