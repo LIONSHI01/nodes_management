@@ -72,7 +72,7 @@ start_node(){
 
 
     read -p "请输入你的錢包私鑰(包括0x)：" PRIVATE_KEY
-    read -p "Wallet Label：" LABEL
+    read -p "Wallet Batch:" BATCH_NUMBER
     read -p "Eth Amount To Bridge：" BRIDGE_AMOUNT
     read -p "Data for Base to OP：" DATA_BRIDGE_BASE_TO_OP
     read -p "Data for OP to Base：" DATA_BRIDGE_OP_TO_BASE
@@ -83,7 +83,7 @@ start_node(){
 
     tee .env > /dev/null <<EOF
     PRIVATE_KEY=$PRIVATE_KEY
-    LABEL=$LABEL
+    LABEL="batch-$BATCH_NUMBER"
     BRIDGE_AMOUNT=$BRIDGE_AMOUNT
     DATA_BRIDGE_BASE_TO_OP=$DATA_BRIDGE_BASE_TO_OP
     DATA_BRIDGE_OP_TO_BASE=$DATA_BRIDGE_OP_TO_BASE
