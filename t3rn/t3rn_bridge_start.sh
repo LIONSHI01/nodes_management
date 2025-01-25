@@ -105,7 +105,9 @@ update_script(){
 }
 
 
-
+view_logs(){
+    screen -r "$SCREEN_SESSION_NAME"
+}
 
 
 # 主程序循环
@@ -113,6 +115,7 @@ while true; do
     show_menu
     case $choice in
         1) start_node ;;
+        2) view_logs;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
