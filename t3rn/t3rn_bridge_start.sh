@@ -92,7 +92,7 @@ start_node(){
 EOF
 
     
-    screen -dmS "$SCREEN_SESSION_NAME" $START_BOT_COMMAND
+    screen -dmS "$SCREEN_SESSION_NAME"
 }
 
  
