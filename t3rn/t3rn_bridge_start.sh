@@ -91,8 +91,8 @@ start_node(){
     OP_SEPOLIA_RPC=$OP_SEPOLIA_RPC
 EOF
 
-    screen -dmS "$SCREEN_SESSION_NAME" base -c $START_BOT_COMMAND
     
+    screen -dmS "$SCREEN_SESSION_NAME" $START_BOT_COMMAND
 }
 
  
