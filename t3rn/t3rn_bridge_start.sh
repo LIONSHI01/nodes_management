@@ -65,7 +65,7 @@ install_dependencies(){
 }
 
 start_node(){
-
+    install_dependencies
 # Download repo
     download_repo
 
