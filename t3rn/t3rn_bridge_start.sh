@@ -91,6 +91,8 @@ start_node(){
     OP_SEPOLIA_RPC=$OP_SEPOLIA_RPC
 EOF
 
+
+    chmod +x start.sh
     
     screen -dmS "$SCREEN_SESSION_NAME"
 }
