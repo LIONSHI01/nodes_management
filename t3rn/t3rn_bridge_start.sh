@@ -27,8 +27,6 @@ show_menu() {
     echo -e "${BLUE}================= Glacier 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装節點"
     echo -e "${PACKAGE_ICON} 2. 查看日誌"
-    echo -e "${PACKAGE_ICON} 3. 重啟節點"
-    echo -e "${WRENCH_ICON} 7. 刪除節點"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
     echo -e "${BLUE}====================================================${NC}"
