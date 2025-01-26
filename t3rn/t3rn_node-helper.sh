@@ -104,8 +104,8 @@ function execute_script() {
     fi
 
     # 提示用户输入环境变量的值，给 EXECUTOR_MAX_L3_GAS_PRICE 设置默认值为 100
-    read -p "请输入 EXECUTOR_MAX_L3_GAS_PRICE 的值 [默认 1200]: " EXECUTOR_MAX_L3_GAS_PRICE
-    EXECUTOR_MAX_L3_GAS_PRICE="${EXECUTOR_MAX_L3_GAS_PRICE:-1200}"
+    read -p "请输入 EXECUTOR_MAX_L3_GAS_PRICE 的值 [默认 1000]: " EXECUTOR_MAX_L3_GAS_PRICE
+    EXECUTOR_MAX_L3_GAS_PRICE="${EXECUTOR_MAX_L3_GAS_PRICE:-1000}"
 
     # 提示用户输入 RPC_ENDPOINTS_OPSP，如果没有输入则使用默认值
     read -p "请输入 RPC_ENDPOINTS_OPSP 的值 [默认 https://sepolia.optimism.io]: " RPC_ENDPOINTS_OPSP
