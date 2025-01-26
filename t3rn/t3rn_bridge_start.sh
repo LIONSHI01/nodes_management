@@ -43,6 +43,11 @@ download_repo(){
 
 
 install_dependencies(){
+    sudo apt update
+    sudo apt upgrade -y
+
+
+
     # 检查是否安装了 git
     if ! command -v git &> /dev/null; then
         echo "Git 未安装，请先安装 Git。"
@@ -93,7 +98,7 @@ EOF
 
     chmod +x $NODE_BINARY
     
-    screen -dmS "$SCREEN_SESSION_NAME" bash -c "./$NODE_BINARY"
+    screen -dmS "t3rn-batch-$BATCH_NUMBER" bash -c "./$NODE_BINARY"
 }
 
  
