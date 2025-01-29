@@ -69,7 +69,7 @@ view_logs(){
 }
 
 update_script(){
- wget -O privasea_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/plaza/privasea_helper.sh && chmod +x privasea_helper.sh && ./privasea_helper.sh
+ wget -O privasea_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/privasea/privasea_helper.sh && chmod +x privasea_helper.sh && ./privasea_helper.sh
 }
 
 
