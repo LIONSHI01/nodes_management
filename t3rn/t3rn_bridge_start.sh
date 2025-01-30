@@ -28,6 +28,7 @@ show_menu() {
     echo -e "${BLUE}================= Glacier 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装節點"
     echo -e "${PACKAGE_ICON} 2. 查看日誌"
+    echo -e "${PACKAGE_ICON} 3. 更新ENV"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
     echo -e "${BLUE}====================================================${NC}"
@@ -109,6 +110,18 @@ update_script(){
 }
 
 
+update_env(){
+     read -p "Number of ETH to Bridge:" BRIDGE_AMOUNT
+     read -p "Data from Base to OP:" DATA_BRIDGE_BASE_TO_OP
+     read -p "Data from OP to Base:" DATA_BRIDGE_OP_TO_BASE
+
+     sed -i "s/BRIDGE_AMOUNT=.*/BRIDGE_AMOUNT=$BRIDGE_AMOUNT/" .env
+     sed -i "s/DATA_BRIDGE_BASE_TO_OP=.*/DATA_BRIDGE_BASE_TO_OP=$DATA_BRIDGE_BASE_TO_OP/" .env
+     sed -i "s/DATA_BRIDGE_OP_TO_BASE=.*/DATA_BRIDGE_OP_TO_BASE=$DATA_BRIDGE_OP_TO_BASE/" .env
+
+}
+
+
 view_logs(){
     screen -r "$SCREEN_SESSION_NAME"
 }
@@ -120,6 +133,7 @@ while true; do
     case $choice in
         1) start_node ;;
         2) view_logs;;
+        3) update_env;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
