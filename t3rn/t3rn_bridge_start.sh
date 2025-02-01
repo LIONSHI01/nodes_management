@@ -16,7 +16,7 @@ KEY_ICON="🔑"
 GIT_REPO="https://github.com/LIONSHI01/t3rn-bot-lion.git"
 REPO_FILE="t3rn-bot-lion"
 GIT_BRANCH="single"
-SCREEN_SESSION_NAME="t3rn-batch-02"
+SCREEN_SESSION_NAME="t3rn-batch-1"
 START_BOT_COMMAND="python3 -m venv venv \
                     source venv/bin/activate \
                     pip install -r requirements.txt \
