@@ -16,7 +16,7 @@ KEY_ICON="🔑"
 GIT_REPO="https://github.com/LIONSHI01/LayerEdge.git"
 REPO_FILE="LayerEdge"
 GIT_BRANCH="lion"
-CONTAINER_NAME="layer_bot"
+CONTAINER_NAME="layeredge_bot"
 
 # 显示菜单
 show_menu() {
