@@ -25,7 +25,7 @@ show_menu() {
     echo -e "${PACKAGE_ICON} 2. 設定Providers"
     echo -e "${PACKAGE_ICON} 3. 啟動機器人"
     echo -e "${PACKAGE_ICON} 4. 查看日誌"
-    echo -e "${PACKAGE_ICON} 8. 刪除機器人及文件"
+    echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
     echo -e "${BLUE}====================================================${NC}"
