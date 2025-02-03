@@ -41,9 +41,12 @@ install_bot(){
     git checkout $GIT_BRANCH
 
 
-    read -p "Token:" TOKEN
 
-    
+    read -p "Token:" TOKEN
+    if [ -f tokens.txt ]; then
+        echo "tokens.txt already exists. Overwriting..."
+        rm tokens.txt
+    fi
     tee tokens.txt > /dev/null <<EOF
     $TOKEN
 EOF
