@@ -22,9 +22,7 @@ CONTAINER_NAME="layeredge_bot"
 show_menu() {
     echo -e "${BLUE}================= Oasis 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装"
-    echo -e "${PACKAGE_ICON} 2. 設定Providers"
-    echo -e "${PACKAGE_ICON} 3. 啟動機器人"
-    echo -e "${PACKAGE_ICON} 4. 查看日誌"
+    echo -e "${PACKAGE_ICON} 2. 查看日誌"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
@@ -88,9 +86,7 @@ while true; do
     show_menu
     case $choice in
         1) install_bot ;;
-        2) setup ;;
-        3) start ;;
-        4) view_logs;;
+        2) view_logs;;
         8) delete_bot;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
