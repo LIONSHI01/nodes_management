@@ -14,7 +14,7 @@ PACKAGE_ICON="📦"
 WRENCH_ICON="🔧"
 KEY_ICON="🔑"
 GIT_REPO="https://github.com/LIONSHI01/UNICH.git"
-REPO_FILE="unich-bot"
+REPO_FILE="UNICH"
 GIT_BRANCH="lion"
 CONTAINER_NAME="unich_bot"
 
