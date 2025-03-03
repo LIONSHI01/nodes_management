@@ -107,6 +107,7 @@ while true; do
     case $choice in
         1) install_bot ;;
         2) view_logs;;
+        3) update_bot;;
         8) delete_bot;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
