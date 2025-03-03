@@ -57,6 +57,26 @@ EOF
 
 }
 
+update_bot(){
+    cd $REPO_FILE
+    git checkout $GIT_BRANCH
+    git reset --hard
+    git pull
+    rm wallets.txt wallets.json
+    
+    
+    read -p "Wallet Address:" ADDRESS
+    read -p "Private Key:" PRIVATE_KEY
+
+    echo '[
+  {
+    "address": "'$ADDRESS'",
+    "privateKey": "'$PRIVATE_KEY'"
+  }
+]' > wallets.json
+
+}
+
 
  
 start(){
