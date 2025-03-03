@@ -24,6 +24,7 @@ show_menu() {
     echo -e "${PACKAGE_ICON} 1. 安装"
     echo -e "${PACKAGE_ICON} 2. 查看日誌"
     echo -e "${PACKAGE_ICON} 3. 更新機器人"
+    echo -e "${PACKAGE_ICON} 4. 暫停機器人"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
@@ -110,6 +111,11 @@ delete_bot(){
     rm -r $REPO_FILE
 }
 
+stop_bot(){
+    cd $REPO_FILE
+    docker-compose down
+}
+
 
 # 主程序循环
 while true; do
@@ -118,6 +124,7 @@ while true; do
         1) install_bot ;;
         2) view_logs;;
         3) update_bot;;
+        4) stop_bot;;
         8) delete_bot;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
