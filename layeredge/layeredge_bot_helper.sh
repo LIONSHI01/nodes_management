@@ -41,10 +41,6 @@ install_bot(){
     cd $REPO_FILE
     git checkout $GIT_BRANCH
 
-
-    read -p "Wallet Address:" ADDRESS
-    read -p "Private Key:" PRIVATE_KEY
-
     write_wallets
 
     start
