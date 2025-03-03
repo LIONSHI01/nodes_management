@@ -20,9 +20,10 @@ CONTAINER_NAME="layeredge_bot"
 
 # 显示菜单
 show_menu() {
-    echo -e "${BLUE}================= Oasis 管理菜单 =================${NC}"
+    echo -e "${BLUE}================= 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装"
     echo -e "${PACKAGE_ICON} 2. 查看日誌"
+    echo -e "${PACKAGE_ICON} 3. 更新機器人"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
