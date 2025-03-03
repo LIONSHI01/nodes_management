@@ -45,16 +45,29 @@ install_bot(){
     read -p "Wallet Address:" ADDRESS
     read -p "Private Key:" PRIVATE_KEY
 
-    if [ -f wallets.txt ]; then
-        echo "wallets.txt already exists. Overwriting..."
-        rm wallets.txt
-    fi
-    
-    tee wallets.txt > /dev/null <<EOF
-    $ADDRESS,$PRIVATE_KEY
-EOF
+    write_wallets
 
     start
+
+}
+
+write_wallets(){
+    if [ -f wallets.json ]; then
+        echo "wallets.json already exists. Overwriting..."
+        rm wallets.json
+    fi
+
+
+    read -p "Wallet Address:" ADDRESS
+    read -p "Private Key:" PRIVATE_KEY
+
+    echo '[
+  {
+    "address": "'$ADDRESS'",
+    "privateKey": "'$PRIVATE_KEY'"
+  }
+]' > wallets.json
+
 
 }
 
