@@ -57,14 +57,14 @@ write_wallets(){
 
     read -p "Wallet Address:" ADDRESS
     read -p "Private Key:" PRIVATE_KEY
-
-    echo '[
+    if [ ! -f wallets.json ]; then
+        echo '[
   {
     "address": "'$ADDRESS'",
     "privateKey": "'$PRIVATE_KEY'"
   }
 ]' > wallets.json
-
+    fi
 
 }
 
