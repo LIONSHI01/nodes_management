@@ -16,12 +16,13 @@ KEY_ICON="🔑"
 GIT_REPO="https://github.com/LIONSHI01/t3rn-bot-lion.git"
 REPO_FILE="t3rn-bot-lion"
 GIT_BRANCH="single"
-SCREEN_SESSION_NAME="t3rn-batch-1"
+SCREEN_SESSION_NAME="t3rn-bot"
 START_BOT_COMMAND="python3 -m venv venv \
                     source venv/bin/activate \
                     pip install -r requirements.txt \
                     python bot.py"
 NODE_BINARY="start.sh"
+NODE_START_BINARY="install.sh"
 
 # 显示菜单
 show_menu() {
@@ -70,7 +71,6 @@ install_dependencies(){
 }
 
 start_node(){
-    # install_dependencies
 # Download repo
     download_repo
 
@@ -95,9 +95,9 @@ start_node(){
 EOF
 
 
-    chmod +x $NODE_BINARY
+    chmod +x $NODE_START_BINARY
     
-    screen -dmS "t3rn-bot" bash -c "./$NODE_BINARY"
+    screen -dmS "$SCREEN_SESSION_NAME" bash -c "./$NODE_START_BINARY"
 }
 
  
