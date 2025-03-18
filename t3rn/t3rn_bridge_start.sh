@@ -94,8 +94,8 @@ start_node(){
     OP_SEPOLIA_RPC=$OP_SEPOLIA_RPC
 EOF
 
-    chmod 744 $NODE_START_BINARY
-    screen -dmS "$SCREEN_SESSION_NAME" bash -c "./$NODE_START_BINARY"
+    chmod 744 $NODE_START_BINARY $NODE_BINARY
+    screen -dmS "$SCREEN_SESSION_NAME"
 }
 
  
