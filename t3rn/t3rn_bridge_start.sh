@@ -78,8 +78,8 @@ start_node(){
 
     read -p "请输入你的錢包私鑰(包括0x)：" PRIVATE_KEY
     read -p "Eth Amount To Bridge：" BRIDGE_AMOUNT
-    read -p "Data for Base to OP：" DATA_BRIDGE_BASE_TO_OP
     read -p "Data for OP to Base：" DATA_BRIDGE_OP_TO_BASE
+    read -p "Data for Base to OP：" DATA_BRIDGE_BASE_TO_OP
     read -p "Base Sepolia RPC[選用默認按enter]：" BASE_SEPOLIA_RPC
     BASE_SEPOLIA_RPC="${BASE_SEPOLIA_RPC:-https://base-sepolia.g.alchemy.com/v2/-VC9eV1WUDDNqcGzeKGKZ5d8E1YFb4Tt}"
     read -p "OP Sepolia RPC[選用默認按enter]：" OP_SEPOLIA_RPC
@@ -94,9 +94,7 @@ start_node(){
     OP_SEPOLIA_RPC=$OP_SEPOLIA_RPC
 EOF
 
-
-    chmod +x $NODE_START_BINARY
-    
+    chmod 744 $NODE_START_BINARY
     screen -dmS "$SCREEN_SESSION_NAME" bash -c "./$NODE_START_BINARY"
 }
 
@@ -110,8 +108,8 @@ update_script(){
 
 update_env(){
      read -p "Number of ETH to Bridge:" BRIDGE_AMOUNT
-     read -p "Data from Base to OP:" DATA_BRIDGE_BASE_TO_OP
      read -p "Data from OP to Base:" DATA_BRIDGE_OP_TO_BASE
+     read -p "Data from Base to OP:" DATA_BRIDGE_BASE_TO_OP
 
      sed -i "s/BRIDGE_AMOUNT=.*/BRIDGE_AMOUNT=$BRIDGE_AMOUNT/" .env
      sed -i "s/DATA_BRIDGE_BASE_TO_OP=.*/DATA_BRIDGE_BASE_TO_OP=$DATA_BRIDGE_BASE_TO_OP/" .env
