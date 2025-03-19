@@ -71,11 +71,14 @@ install_dependencies(){
 }
 
 start_node(){
+    mkdir t3rn-bot-2
+    cd t3rn-bot-2
 # Download repo
     download_repo
 
 
 
+    read -p "Batch Label：" LABEL
     read -p "Eth Amount To Bridge：" BRIDGE_AMOUNT
     read -p "请输入你的錢包私鑰(包括0x)：" PRIVATE_KEY
     read -p "Data for OP to Base：" DATA_BRIDGE_OP_TO_BASE
@@ -95,7 +98,7 @@ start_node(){
 EOF
 
     chmod 744 $NODE_START_BINARY $NODE_BINARY
-    screen -dmS "$SCREEN_SESSION_NAME"
+    screen -dmS "$SCREEN_SESSION_NAME-$LABEL"
 }
 
  
