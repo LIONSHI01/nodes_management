@@ -76,8 +76,8 @@ start_node(){
 
 
 
-    read -p "请输入你的錢包私鑰(包括0x)：" PRIVATE_KEY
     read -p "Eth Amount To Bridge：" BRIDGE_AMOUNT
+    read -p "请输入你的錢包私鑰(包括0x)：" PRIVATE_KEY
     read -p "Data for OP to Base：" DATA_BRIDGE_OP_TO_BASE
     read -p "Data for Base to OP：" DATA_BRIDGE_BASE_TO_OP
     read -p "Base Sepolia RPC[選用默認按enter]：" BASE_SEPOLIA_RPC
