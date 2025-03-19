@@ -23,7 +23,7 @@ START_BOT_COMMAND="python3 -m venv venv \
                     python bot.py"
 NODE_BINARY="start.sh"
 NODE_START_BINARY="install.sh"
-LABEL="2"
+LABEL="1"
 
 # 显示菜单
 show_menu() {
