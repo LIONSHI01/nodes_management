@@ -72,8 +72,6 @@ install_dependencies(){
 }
 
 start_node(){
-    mkdir t3rn-bot-2
-    cd t3rn-bot-2
 # Download repo
     download_repo
 
