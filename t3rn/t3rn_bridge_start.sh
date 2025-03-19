@@ -23,6 +23,7 @@ START_BOT_COMMAND="python3 -m venv venv \
                     python bot.py"
 NODE_BINARY="start.sh"
 NODE_START_BINARY="install.sh"
+LABEL="2"
 
 # 显示菜单
 show_menu() {
@@ -122,7 +123,7 @@ update_env(){
 
 
 view_logs(){
-    screen -r "$SCREEN_SESSION_NAME"
+    screen -r "$SCREEN_SESSION_NAME-$LABEL"
 }
 
 
