@@ -31,6 +31,7 @@ show_menu() {
     echo -e "${PACKAGE_ICON} 1. 安装節點"
     echo -e "${PACKAGE_ICON} 2. 查看日誌"
     echo -e "${PACKAGE_ICON} 3. 更新ENV"
+    echo -e "${PACKAGE_ICON} 4. 更新RPC"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
     echo -e "${BLUE}====================================================${NC}"
@@ -119,6 +120,15 @@ update_env(){
 
 }
 
+update_rpc(){
+     read -p "Data from OP to Base:" DATA_BRIDGE_OP_TO_BASE
+     read -p "Data from Base to OP:" DATA_BRIDGE_BASE_TO_OP
+
+     sed -i "s/DATA_BRIDGE_BASE_TO_OP=.*/DATA_BRIDGE_BASE_TO_OP=$DATA_BRIDGE_BASE_TO_OP/" .env
+     sed -i "s/DATA_BRIDGE_OP_TO_BASE=.*/DATA_BRIDGE_OP_TO_BASE=$DATA_BRIDGE_OP_TO_BASE/" .env
+
+}
+
 
 view_logs(){
     screen -r "$SCREEN_SESSION_NAME-$LABEL"
@@ -132,6 +142,7 @@ while true; do
         1) start_node ;;
         2) view_logs;;
         3) update_env;;
+        4) update_rpc;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
