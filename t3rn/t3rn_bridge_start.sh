@@ -121,11 +121,11 @@ update_env(){
 }
 
 update_rpc(){
-     read -p "Data from OP to Base:" DATA_BRIDGE_OP_TO_BASE
-     read -p "Data from Base to OP:" DATA_BRIDGE_BASE_TO_OP
+     read -p "Base Sepolia RPC:" BASE_SEPOLIA_RPC
+     read -p "OP Sepolia RPC:" OP_SEPOLIA_RPC
 
-     sed -i "s/DATA_BRIDGE_BASE_TO_OP=.*/DATA_BRIDGE_BASE_TO_OP=$DATA_BRIDGE_BASE_TO_OP/" .env
-     sed -i "s/DATA_BRIDGE_OP_TO_BASE=.*/DATA_BRIDGE_OP_TO_BASE=$DATA_BRIDGE_OP_TO_BASE/" .env
+     sed -i "s/BASE_SEPOLIA_RPC=.*/BASE_SEPOLIA_RPC=$BASE_SEPOLIA_RPC/" .env
+     sed -i "s/OP_SEPOLIA_RPC=.*/OP_SEPOLIA_RPC=$OP_SEPOLIA_RPC/" .env
 
 }
 
