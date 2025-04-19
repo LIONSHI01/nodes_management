@@ -74,7 +74,6 @@ update_script(){
 
  
 delete_node(){
-    cd $REPO_FILE
     rm -r $REPO_FILE
 }
 
