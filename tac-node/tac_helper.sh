@@ -50,7 +50,16 @@ sed -i "/\[p2p\]/a persistent_peers = \"9b4995a048f930776ee5b799f201e9b00727ffcc
 # Download Genesis File
 curl https://newyork-inap-72-251-230-233.ankr.com/tac_tacd_testnet_full_tendermint_rpc_1/genesis | jq '.result.genesis' > .testnet/config/genesis.json
 
+# Add Start command
+echo "tacchaind start --chain-id tacchain_2390-1 --home .testnet" > start.sh
+chmod +x start.sh
+
+
+# Create Screen
 screen -dmS "$SCREEN_SESSION_NAME"
+
+./start.sh
+
 
 }
 
@@ -70,11 +79,16 @@ delete_node(){
 }
 
 
+view_logs(){
+    screen -r "$SCREEN_SESSION_NAME"
+}
+
 # 主程序循环
 while true; do
     show_menu
     case $choice in
         1) install_bot ;;
+        2) view_logs ;;
         8) delete_node;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
