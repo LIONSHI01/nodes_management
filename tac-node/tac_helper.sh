@@ -13,7 +13,7 @@ CROSS_MARK="❌"
 PACKAGE_ICON="📦"
 WRENCH_ICON="🔧"
 KEY_ICON="🔑"
-REPO_FILE="tacchain"
+REPO_FILE="tacchain/"
 SCREEN_SESSION_NAME="tac-node"
 
 # 显示菜单
