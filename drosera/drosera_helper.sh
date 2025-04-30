@@ -151,7 +151,7 @@ function install_drosera_node() {
     echo "请确保你的钱包地址在 Holesky 测试网上有足够的 ETH 用于交易。"
     while true; do
         echo "请输入 EVM 钱包私钥："
-        read -s -p "私钥: " DROSERA_PRIVATE_KEY
+        read -s "私钥: " DROSERA_PRIVATE_KEY
         if [ -z "$DROSERA_PRIVATE_KEY" ]; then
             echo "错误：私钥不能为空，请重新输入"
         else
