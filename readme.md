@@ -55,3 +55,7 @@ wget -O elixir_v1.sh https://raw.githubusercontent.com/LIONSHI01/nodes_managemen
 # Soneium
 
 wget -O soneium.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/soneium/soneium.sh && chmod +x soneium.sh && ./soneium.sh
+
+# Aztec
+
+wget -O aztec_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/aztec/aztec_helper.sh && chmod +x aztec_helper.sh && ./aztec_helper.sh
