@@ -111,7 +111,7 @@ setup_trap(){
   cd my-drosera-trap
 
   # Edit drosera.toml
-  echo "private_trap=true" >> drosera.toml
+  echo "private_trap = true" >> drosera.toml
   sed -i "s/whitelist = .*/whitelist = [\"$WALLET_ADDRESS\"]/" drosera.toml
 
 #   Update Trap Configuration
