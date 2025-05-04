@@ -14,6 +14,7 @@ PACKAGE_ICON="📦"
 WRENCH_ICON="🔧"
 KEY_ICON="🔑"
 REPO_FILE="Drosera-Network/"
+DROSERA_TRAP_FILE="my-drosera-trap"
 
 # 显示菜单
 show_menu() {
@@ -52,8 +53,23 @@ curl -fsSL https://bun.sh/install | bash
 source /root/.bashrc
 
 source /root/.bashrc
-drosera
-foundry
+
+if command -v drosera &> /dev/null
+then
+    echo "Drosera is installed"
+else
+    echo "Drosera is not installed"
+fi
+
+
+if command -v forge &> /dev/null
+then
+    echo "Forge is installed"
+else
+    echo "Forge is not installed"
+fi
+
+
 
 }
 
@@ -168,7 +184,10 @@ update_script(){
 delete_node(){
     cd $REPO_FILE
     docker-compose down
+    cd ~
     rm -r $REPO_FILE
+    rm -r $DROSERA_TRAP_FILE
+
 }
 
 
