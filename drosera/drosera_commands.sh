@@ -59,7 +59,7 @@ foundry
 
 
 
-install_bot(){    
+install_node(){    
 read -p "请输入錢包地址: " WALLET_ADDRESS
 read -p "请输入私鑰: " PRIVATE_KEY
 read -p "请输入Github_Email: " Github_Email
