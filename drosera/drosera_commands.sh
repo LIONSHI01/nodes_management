@@ -56,6 +56,8 @@ source /root/.bashrc
 
 source /root/.bashrc
 source ~/.bashrc
+droseraup
+foundryup
 
 if command -v drosera &> /dev/null
 then
