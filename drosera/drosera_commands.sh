@@ -18,9 +18,10 @@ REPO_FILE="Drosera-Network/"
 # 显示菜单
 show_menu() {
     echo -e "${BLUE}================= Unich 管理菜单 =================${NC}"
-    echo -e "${PACKAGE_ICON} 1. 安装"
-    echo -e "${PACKAGE_ICON} 2. Setup Trap"
-    echo -e "${PACKAGE_ICON} 3. 查看日誌"
+    echo -e "${PACKAGE_ICON} 1. 安装環境"
+    echo -e "${PACKAGE_ICON} 2. 安裝Node"
+    echo -e "${PACKAGE_ICON} 3. Setup Trap"
+    echo -e "${PACKAGE_ICON} 4. 查看日誌"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
@@ -50,6 +51,10 @@ foundryup
 curl -fsSL https://bun.sh/install | bash
 source /root/.bashrc
 
+source /root/.bashrc
+drosera
+foundry
+
 }
 
 
@@ -60,9 +65,6 @@ read -p "请输入私鑰: " PRIVATE_KEY
 read -p "请输入Github_Email: " Github_Email
 read -p "请输入Github_Username: " Github_Username
 
-
-
-install_dependencies
 
 
 # Deploy Contract & Trap
@@ -179,9 +181,10 @@ view_logs(){
 while true; do
     show_menu
     case $choice in
-        1) install_bot ;;
-        2) setup_trap ;;
-        3) view_logs ;;
+        1) install_dependencies ;;
+        2) install_node ;;
+        3) setup_trap ;;
+        4) view_logs ;;
         8) delete_node;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
