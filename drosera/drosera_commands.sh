@@ -53,6 +53,7 @@ curl -fsSL https://bun.sh/install | bash
 source /root/.bashrc
 
 source /root/.bashrc
+source ~/.bashrc
 
 if command -v drosera &> /dev/null
 then
