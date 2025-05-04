@@ -66,8 +66,13 @@ install_dependencies
 
 
 # Deploy Contract & Trap
-mkdir my-drosera-trap
-cd my-drosera-trap
+if [ -d "my-drosera-trap" ]; then
+  cd my-drosera-trap
+else
+  mkdir my-drosera-trap
+  cd my-drosera-trap
+fi
+
 
 
 # Set up github config
