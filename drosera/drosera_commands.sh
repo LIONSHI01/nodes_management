@@ -88,7 +88,7 @@ DROSERA_PRIVATE_KEY=$PRIVATE_KEY drosera apply
 
 
 
-edit_trap(){
+setup_trap(){
   echo "請確保你已經stake ETH"
 
   read -p "请输入VPS_IP: " VPS_IP
@@ -142,6 +142,7 @@ sed -i "s/VPS_IP=.*/VPS_IP=$VPS_IP/" .env
 
 # Start container
 docker-compose up -d
+docker-compose logs -f
 
 
 }
@@ -170,7 +171,8 @@ while true; do
     show_menu
     case $choice in
         1) install_bot ;;
-        2) view_logs ;;
+        2) setup_trap ;;
+        3) view_logs ;;
         8) delete_node;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
