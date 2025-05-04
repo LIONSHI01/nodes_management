@@ -128,7 +128,6 @@ setup_trap(){
 
 
   cd ~
-  drosera dryrun
   cd my-drosera-trap
 
   # Edit drosera.toml
