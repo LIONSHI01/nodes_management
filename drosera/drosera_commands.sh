@@ -33,20 +33,8 @@ show_menu() {
 install_dependencies(){
   sudo apt-get update && sudo apt-get upgrade -y
   sudo apt install curl ufw iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev  -y
-}
 
 
-
-
-install_bot(){    
-read -p "请输入錢包地址: " WALLET_ADDRESS
-read -p "请输入私鑰: " PRIVATE_KEY
-read -p "请输入Github_Email: " Github_Email
-read -p "请输入Github_Username: " Github_Username
-
-
-
-install_dependencies
 
 # Setup Drosera CLI
 curl -L https://app.drosera.io/install | bash
@@ -61,6 +49,20 @@ foundryup
 # Setup Bun
 curl -fsSL https://bun.sh/install | bash
 source /root/.bashrc
+
+}
+
+
+
+install_bot(){    
+read -p "请输入錢包地址: " WALLET_ADDRESS
+read -p "请输入私鑰: " PRIVATE_KEY
+read -p "请输入Github_Email: " Github_Email
+read -p "请输入Github_Username: " Github_Username
+
+
+
+install_dependencies
 
 
 # Deploy Contract & Trap
@@ -159,6 +161,7 @@ update_script(){
 delete_node(){
     cd $REPO_FILE
     docker-compose down
+    rm -r $REPO_FILE
 }
 
 
