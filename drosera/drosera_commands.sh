@@ -41,11 +41,13 @@ install_dependencies(){
 # Setup Drosera CLI
 curl -L https://app.drosera.io/install | bash
 source /root/.bashrc
+source ~/.bashrc
 droseraup
 
 # Setup Foundry CLI
 curl -L https://foundry.paradigm.xyz | bash
 source /root/.bashrc
+source ~/.bashrc
 foundryup
 
 # Setup Bun
