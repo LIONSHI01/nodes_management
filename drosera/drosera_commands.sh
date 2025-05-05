@@ -20,8 +20,8 @@ DROSERA_TRAP_FILE="my-drosera-trap"
 show_menu() {
     echo -e "${BLUE}================= Unich 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装環境"
-    echo -e "${PACKAGE_ICON} 2. 安裝節點"
-    echo -e "${PACKAGE_ICON} 3. 檢查安裝環境"
+    echo -e "${PACKAGE_ICON} 2. 檢查安裝環境"
+    echo -e "${PACKAGE_ICON} 3. 安裝節點"
     echo -e "${PACKAGE_ICON} 4. Setup Trap"
     echo -e "${PACKAGE_ICON} 5. 查看日誌"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
@@ -213,8 +213,8 @@ while true; do
     show_menu
     case $choice in
         1) install_dependencies ;;
-        2) install_node ;;
         2) check_dependencies ;;
+        3) install_node ;;
         4) setup_trap ;;
         5) view_logs ;;
         8) delete_node;;
