@@ -20,9 +20,10 @@ DROSERA_TRAP_FILE="my-drosera-trap"
 show_menu() {
     echo -e "${BLUE}================= Unich 管理菜单 =================${NC}"
     echo -e "${PACKAGE_ICON} 1. 安装環境"
-    echo -e "${PACKAGE_ICON} 2. 安裝Node"
-    echo -e "${PACKAGE_ICON} 3. Setup Trap"
-    echo -e "${PACKAGE_ICON} 4. 查看日誌"
+    echo -e "${PACKAGE_ICON} 2. 安裝節點"
+    echo -e "${PACKAGE_ICON} 3. 檢查安裝環境"
+    echo -e "${PACKAGE_ICON} 4. Setup Trap"
+    echo -e "${PACKAGE_ICON} 5. 查看日誌"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
@@ -76,6 +77,13 @@ fi
 
 
 
+}
+
+check_dependencies(){
+    source /root/.bashrc
+source ~/.bashrc
+droseraup
+foundryup
 }
 
 
@@ -206,8 +214,9 @@ while true; do
     case $choice in
         1) install_dependencies ;;
         2) install_node ;;
-        3) setup_trap ;;
-        4) view_logs ;;
+        2) check_dependencies ;;
+        4) setup_trap ;;
+        5) view_logs ;;
         8) delete_node;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
