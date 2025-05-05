@@ -128,12 +128,10 @@ DROSERA_PRIVATE_KEY=$PRIVATE_KEY drosera apply
 
 
 setup_trap(){
-  echo "請確保你已經stake ETH"
-
+  read -p "请输入RPC: " ALCHEMY_RPC
   read -p "请输入VPS_IP: " VPS_IP
   read -p "请输入錢包地址: " WALLET_ADDRESS
   read -p "请输入私鑰: " PRIVATE_KEY
-  read -p "请输入RPC: " ALCHEMY_RPC
 
 
 
