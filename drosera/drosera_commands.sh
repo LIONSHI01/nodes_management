@@ -81,10 +81,10 @@ fi
 
 
 install_node(){    
-read -p "请输入錢包地址: " WALLET_ADDRESS
-read -p "请输入私鑰: " PRIVATE_KEY
 read -p "请输入Github_Email: " Github_Email
 read -p "请输入Github_Username: " Github_Username
+read -p "请输入錢包地址: " WALLET_ADDRESS
+read -p "请输入私鑰: " PRIVATE_KEY
 
 
 
@@ -137,7 +137,7 @@ setup_trap(){
   sed -i "s/whitelist = .*/whitelist = [\"$WALLET_ADDRESS\"]/" drosera.toml
 
 #   Update Trap Configuration
-    DROSERA_PRIVATE_KEY=$PRIVATE_KEY drosera apply
+DROSERA_PRIVATE_KEY=$PRIVATE_KEY drosera apply
 
 
     cd ~
