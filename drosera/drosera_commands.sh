@@ -206,6 +206,100 @@ view_logs(){
     docker-compose logs -f
 }
 
+
+# 命令4：升级到1.17并修改drosera_rpc
+function upgrade_to_1_17() {
+    # 安装 Drosera
+    echo "正在安装 Drosera..."
+    curl -L https://app.drosera.io/install | bash || { echo "Drosera 安装失败"; exit 1; }
+    source /root/.bashrc
+    export PATH=$PATH:/root/.drosera/bin
+    echo 'export PATH=$PATH:/root/.drosera/bin' >> /root/.bashrc
+    if command -v droseraup &> /dev/null; then
+        droseraup || { echo "droseraup 执行失败"; exit 1; }
+        echo "Drosera 安装完成"
+    else
+        echo "droseraup 命令未找到，Drosera 安装失败"
+        exit 1
+    fi
+
+    # 检查 Drosera 二进制文件并验证版本
+    DROsera_BIN="/root/.drosera/bin/drosera"
+    if [ -f "$DROsera_BIN" ]; then
+        echo "找到 Drosera，正在验证版本..."
+        $DROsera_BIN --version || { echo "Drosera 版本检查失败"; exit 1; }
+        echo "Drosera 版本检查成功"
+    else
+        echo "Drosera 未找到（$DROsera_BIN 不存在）"
+        exit 1
+    fi
+
+    # 切换到 my-drosera-trap 目录
+    echo "切换到 /root/my-drosera-trap 目录..."
+    cd /root/my-drosera-trap || { echo "错误：无法切换到 /root/my-drosera-trap 目录，请确保目录存在"; exit 1; }
+
+    # 检查 drosera.toml 文件
+    DROsera_TOML="/root/my-drosera-trap/drosera.toml"
+    if [ ! -f "$DROsera_TOML" ]; then
+        echo "错误：未找到 drosera.toml 文件 ($DROsera_TOML)。请确保 Drosera 安装正确并生成了配置文件。"
+        exit 1
+    fi
+
+    # 修改 drosera.toml 中的 drosera_rpc
+    DROsera_RPC="https://relay.testnet.drosera.io"  # 使用指定的 RPC 端点
+    echo "正在更新 drosera.toml 中的 drosera_rpc 配置..."
+    if grep -q "^drosera_rpc = " "$DROsera_TOML"; then
+        # 如果 drosera_rpc 存在，替换其值
+        sed -i "s|^drosera_rpc = .*|drosera_rpc = \"$DROsera_RPC\"|" "$DROsera_TOML"
+        echo "已更新 drosera_rpc 为 $DROsera_RPC"
+    else
+        # 如果 drosera_rpc 不存在，追加到文件末尾
+        echo "drosera_rpc = \"$DROsera_RPC\"" >> "$DROsera_TOML"
+        echo "已添加 drosera_rpc = $DROsera_RPC 到 drosera.toml"
+    fi
+
+    # 验证 drosera.toml 是否正确更新
+    if grep -q "drosera_rpc = \"$DROsera_RPC\"" "$DROsera_TOML"; then
+        echo "drosera.toml 配置验证通过"
+    else
+        echo "错误：drosera.toml 中的 drosera_rpc 配置更新失败"
+        exit 1
+    fi
+
+    # 提示用户输入EVM钱包私钥
+    echo "请确保你的钱包地址在 Holesky 测试网上有足够的 ETH 用于交易。"
+    while true; do
+        echo "请输入 EVM 钱包私钥（隐藏输入）："
+        read -s DROSERA_PRIVATE_KEY
+        if [ -z "$DROSERA_PRIVATE_KEY" ]; then
+            echo "错误：私钥不能为空，请重新输入"
+        else
+            break
+        fi
+    done
+
+    # 执行 drosera apply
+    echo "正在执行 drosera apply..."
+    echo "等待 20 秒以确保准备就绪..."
+    sleep 20
+    export DROSERA_PRIVATE_KEY="$DROSERA_PRIVATE_KEY"
+    if echo "ofc" | drosera apply; then
+        echo "drosera apply 完成"
+    else
+        echo "drosera apply 失败，请手动运行 'cd /root/my-drosera-trap && export DROSERA_PRIVATE_KEY=your_private_key && echo \"ofc\" | drosera apply' 并检查错误日志。"
+        unset DROSERA_PRIVATE_KEY
+        exit 1
+    fi
+
+    # 清理私钥变量
+    unset DROSERA_PRIVATE_KEY
+    echo "私钥变量已清理"
+
+    echo "升级到1.17及drosera apply执行完成"
+    echo "按任意键返回主菜单..."
+    read -r
+}
+
 # 主程序循环
 while true; do
     show_menu
