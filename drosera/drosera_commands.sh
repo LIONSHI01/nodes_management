@@ -24,6 +24,7 @@ show_menu() {
     echo -e "${PACKAGE_ICON} 3. 安裝節點"
     echo -e "${PACKAGE_ICON} 4. Setup Trap"
     echo -e "${PACKAGE_ICON} 5. 查看日誌"
+    echo -e "${PACKAGE_ICON} 6. 更新節點"
     echo -e "${CROSS_MARK} 8. 刪除機器人及文件"
     echo -e "${WRENCH_ICON} 0. 更新Script"
     echo -e "🚪 9. 退出"
@@ -309,6 +310,7 @@ while true; do
         3) install_node ;;
         4) setup_trap ;;
         5) view_logs ;;
+        6) upgrade_to_1_17 ;;
         8) delete_node;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
