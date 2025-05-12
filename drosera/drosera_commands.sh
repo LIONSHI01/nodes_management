@@ -214,6 +214,7 @@ function upgrade_to_1_17() {
     echo "正在安装 Drosera..."
     curl -L https://app.drosera.io/install | bash || { echo "Drosera 安装失败"; exit 1; }
     source /root/.bashrc
+    source ~/.bashrc
     export PATH=$PATH:/root/.drosera/bin
     echo 'export PATH=$PATH:/root/.drosera/bin' >> /root/.bashrc
     if command -v droseraup &> /dev/null; then
